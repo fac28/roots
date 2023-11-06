@@ -9,6 +9,7 @@
     "prettier": "prettier --write \"**/*.ts\" \"**/*.tsx\""
   },
   "dependencies": {
+    "@glidejs/glide": "^3.6.0",
     "@supabase/ssr": "latest",
     "@supabase/supabase-js": "latest",
     "autoprefixer": "10.4.15",
