@@ -5,7 +5,7 @@
     "build": "next build",
     "start": "next start",
     "prepare": "husky install",
-    "prettier": "prettier --write \"**/*.js\""
+    "prettier": "prettier --write \"**/*.ts\" \"**/*.tsx\""
   },
   "dependencies": {
     "@supabase/ssr": "latest",

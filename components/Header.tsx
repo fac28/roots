@@ -20,11 +20,9 @@ export default function Header() {
 
   return (
     <div>
-        header
-        <nav>
-        <div>
-          {isSupabaseConnected && <AuthButton />}
-        </div>
+      header
+      <nav>
+        <div>{isSupabaseConnected && <AuthButton />}</div>
       </nav>
     </div>
   )
