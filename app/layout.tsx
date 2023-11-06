@@ -1,6 +1,5 @@
 import './globals.css'
 
-
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
   : 'http://localhost:3000'
@@ -17,9 +16,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang='en'>
       <body>
-        <main className="min-h-screen flex flex-col items-center">
+        <main className='min-h-screen flex flex-col items-center'>
           {children}
         </main>
       </body>
