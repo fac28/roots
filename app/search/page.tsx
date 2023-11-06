@@ -1,12 +1,17 @@
-import { createClient } from '@/utils/supabase/server'
-import { cookies } from 'next/headers'
+import { filterByVeggie } from '@/utils/supabase/models/filterByVeggie'
+import { Veggie } from '@/utils/supabase/types/globalTypes'
+
+import { SearchBar } from '@/components/SearchBar'
 
 export default async function Page() {
-  const cookieStore = cookies()
-  const supabase = createClient(cookieStore)
-  const { data: veg } = await supabase.from('veg').select()
+  
+  const searchedVeggie: Veggie[] = await filterByVeggie('Potato')
 
-  return <pre>{JSON.stringify(veg, null, 2)}</pre>
+  return ( 
+   <div>
+    <SearchBar />
+   </div>
+  )
 }
 
 // import { createClient } from '@/utils/supabase/server'
