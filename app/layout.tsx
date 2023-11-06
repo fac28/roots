@@ -1,19 +1,19 @@
-import './globals.css'
+import './globals.css';
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
-  : 'http://localhost:3000'
+  : 'http://localhost:3000';
 
 export const metadata = {
   metadataBase: new URL(defaultUrl),
   title: 'Roots',
   description: 'Your garden at you fingertips',
-}
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang='en'>
@@ -23,5 +23,5 @@ export default function RootLayout({
         </main>
       </body>
     </html>
-  )
+  );
 }
