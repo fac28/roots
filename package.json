@@ -4,7 +4,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
     "prepare": "husky install",
     "prettier": "prettier --write \"**/*.ts\" \"**/*.tsx\""
   },
