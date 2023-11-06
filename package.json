@@ -12,6 +12,7 @@
     "@glidejs/glide": "^3.6.0",
     "@supabase/ssr": "latest",
     "@supabase/supabase-js": "latest",
+    "@types/glidejs": "^1.0.33",
     "autoprefixer": "10.4.15",
     "geist": "^1.0.0",
     "next": "latest",
@@ -23,6 +24,7 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^14.0.1",
+    "@types/glidejs__glide": "^3.6.3",
     "@types/node": "20.3.1",
     "@types/react": "18.2.8",
     "@types/react-dom": "18.2.5",

@@ -6,7 +6,7 @@ export default async function Index() {
     <>
       <Header />
       <div>Landing Page</div>
-      <Carousel />
+      <Carousel children={undefined} />
     </>
   );
 }
