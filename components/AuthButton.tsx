@@ -24,16 +24,11 @@ export default async function AuthButton() {
     <div>
       Hey, {user.email}!
       <form action={signOut}>
-        <button>
-          Logout
-        </button>
+        <button>Logout</button>
       </form>
     </div>
   ) : (
-    <Link
-      href="/login"
-      className="p-2 rounded-md  shadow-lg bg-slate-400"
-    >
+    <Link href='/login' className='p-2 rounded-md  shadow-lg bg-slate-400'>
       Login
     </Link>
   )
