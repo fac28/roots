@@ -11,6 +11,9 @@ export const metadata = {
   description: 'Your garden at you fingertips',
 }
 
+
+
+
 export default function RootLayout({
   children,
 }: {
