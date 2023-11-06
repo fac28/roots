@@ -3,6 +3,7 @@
 import React, { useEffect, ReactNode } from 'react';
 import Glide from '@glidejs/glide';
 import '@glidejs/glide/dist/css/glide.core.min.css';
+import Image from 'next/image';
 
 type GlideCarouselProps = {
   children: ReactNode;
@@ -35,6 +36,13 @@ const Carousel: React.FC<GlideCarouselProps> = ({ children }) => {
                 pots. Remember winter can be a tough time for birds in terms of
                 water and food, so keep supplies well topped up.
               </p>
+              <Image
+                src='https://images.unsplash.com/photo-1484305536549-dbf3874444c2?q=80&w=1744&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+                alt='Frosty Forest'
+                width={640}
+                height={425}
+                layout='responsive'
+              />
             </div>
           </li>
           <li key='slide2' className='glide__slide'>
@@ -48,6 +56,7 @@ const Carousel: React.FC<GlideCarouselProps> = ({ children }) => {
                 they’re good for people too, according to an increasing body of
                 research
               </h2>
+
               <p className='mx-10'>
                 Gardening has a long and connected history to science and
                 medicine. For centuries gardens have been a source not only of
