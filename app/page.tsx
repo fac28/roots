@@ -1,4 +1,4 @@
-import Header from '@/components/Header'
+import Header from '@/components/Header';
 
 export default async function Index() {
   return (
@@ -6,5 +6,5 @@ export default async function Index() {
       <Header />
       <div>Landing Page</div>
     </>
-  )
+  );
 }

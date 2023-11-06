@@ -1,12 +1,12 @@
-import { createClient } from '@/utils/supabase/server'
-import { cookies } from 'next/headers'
+import { createClient } from '@/utils/supabase/server';
+import { cookies } from 'next/headers';
 
 export default async function Page() {
-  const cookieStore = cookies()
-  const supabase = createClient(cookieStore)
-  const { data: veg } = await supabase.from('veg').select()
+  const cookieStore = cookies();
+  const supabase = createClient(cookieStore);
+  const { data: veg } = await supabase.from('veg').select();
 
-  return <pre>{JSON.stringify(veg, null, 2)}</pre>
+  return <pre>{JSON.stringify(veg, null, 2)}</pre>;
 }
 
 // import { createClient } from '@/utils/supabase/server'
