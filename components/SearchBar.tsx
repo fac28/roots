@@ -4,12 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { FaSearchPlus } from 'react-icons/fa';
 
-const terms = [
-  'Apple',
-  'Tomato',
-  'Potato',
-  'Spinach'
-];
+const terms = ['Apple', 'Tomato', 'Potato', 'Spinach'];
 
 export const SearchBar: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
