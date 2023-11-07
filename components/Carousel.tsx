@@ -19,7 +19,7 @@ const Carousel: React.FC<GlideCarouselProps> = ({ children }) => {
   const childArray = React.Children.toArray(children) as React.ReactElement[];
 
   return (
-    <div className='fixed bottom-0 left-0 w-full bg-light'>
+    <div className='absolute bottom-0 left-0 w-full bg-primaryLight'>
       <div className='glide'>
         <div className='glide__arrows bg-white' data-glide-el='controls'>
           <button
@@ -38,7 +38,7 @@ const Carousel: React.FC<GlideCarouselProps> = ({ children }) => {
         <div className='glide__track' data-glide-el='track'>
           <ul className='glide__slides'>
             <li key='slide1' className='glide__slide'>
-              <div className='h-64 bg-light flex'>
+              <div className='h-64 bg-primaryLight flex'>
                 <div className='items-center justify-center '>
                   <h1 className='font-bold text-xl mb-2 pt-5 mx-10'>
                     Gardening in November
@@ -67,7 +67,7 @@ const Carousel: React.FC<GlideCarouselProps> = ({ children }) => {
             </li>
 
             <li key='slide2' className='glide__slide'>
-              <div className='h-64 bg-light flex'>
+              <div className='h-64 bg-primaryLight flex'>
                 <div className='items-center justify-center '>
                   <h1 className='font-bold text-xl mb-2 pt-5 mx-10'>
                     Why gardening makes us feel better – and how to make the
@@ -104,7 +104,7 @@ const Carousel: React.FC<GlideCarouselProps> = ({ children }) => {
             </li>
 
             <li key='slide3' className='glide__slide'>
-              <div className='h-64 bg-light flex'>
+              <div className='h-64 bg-primaryLight flex'>
                 <div className='items-center justify-center'>
                   <h1 className='font-bold text-xl mb-2 pt-5 mx-10'>
                     After absence, the heart really has grown fonder

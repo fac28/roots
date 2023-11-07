@@ -7,11 +7,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        light: '#FCF2F2',
+        primaryLight: '#FCF2F2',
+        primaryDark: '#262A2C',
+        primaryGreen: '#077467',
+        secondaryGreen: '#BADEC2',
+        bitterRed: '#FF5A5F',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
-        cream: '#fcf2f2',
-        gren: '#077467',
         btn: {
           background: 'hsl(var(--btn-background))',
           'background-hover': 'hsl(var(--btn-background-hover))',
