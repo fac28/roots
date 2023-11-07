@@ -1,11 +1,5 @@
 {
-  "extends": [
-    "airbnb",
-    "plugin:@next/next/recommended",
-    "plugin:jsx-a11y/recommended",
-    "plugin:jest/recommended",
-    "plugin:prettier/recommended"
-  ],
+  "extends": ["airbnb", "plugin:@next/next/recommended"],
   "plugins": ["prettier"],
   "rules": {
     "prettier/prettier": "error"
