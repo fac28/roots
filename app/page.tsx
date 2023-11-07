@@ -18,7 +18,7 @@ export default async function Index() {
           <div>Landing Page</div>
         </section>
       </section>
-      <Carousel children={undefined} />
+      <Carousel />
     </>
   );
 }
