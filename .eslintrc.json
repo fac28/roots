@@ -1,13 +1,14 @@
 {
   "extends": [
-    "next/core-web-vitals",
+    "airbnb",
+    "plugin:@next/next/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:jest/recommended"
   ],
   "rules": {},
   "settings": {
     "react": {
-      "version": "detect" // Automatically detect the React version
+      "version": "detect" 
     }
   }
 }
