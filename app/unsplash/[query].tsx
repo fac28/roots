@@ -20,7 +20,7 @@ interface UnsplashApiResponse {
   results: UnsplashImage[];
 }
 
-const Page = () => {
+const FetchUnsplashImage = () => {
   const [images, setImages] = useState<UnsplashImage[]>([]);
   const [error, setError] = useState<string | null>(null);
   const query = 'tomato';
@@ -61,4 +61,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default FetchUnsplashImage;
