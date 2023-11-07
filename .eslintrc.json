@@ -3,12 +3,16 @@
     "airbnb",
     "plugin:@next/next/recommended",
     "plugin:jsx-a11y/recommended",
-    "plugin:jest/recommended"
+    "plugin:jest/recommended",
+    "plugin:prettier/recommended"
   ],
-  "rules": {},
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error"
+  },
   "settings": {
     "react": {
-      "version": "detect" 
+      "version": "detect"
     }
   }
 }
