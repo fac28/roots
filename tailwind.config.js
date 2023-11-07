@@ -19,6 +19,10 @@ module.exports = {
           'background-hover': 'hsl(var(--btn-background-hover))',
         },
       },
+      fontFamily: {
+        playfair: ['Playfair Display', 'serif'],
+        source: ['Source Sans 3', 'sans-serif'],
+      },
     },
   },
   plugins: [],
