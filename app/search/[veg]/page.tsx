@@ -35,7 +35,7 @@ const IndividualVegPage = async ({ params }: { params: Params }) => {
 
   const veggieResult = await filterByVeggie(searchTerm);
   try {
-    const accessKey = process.env.NEXT_PUBLIC_UNSPLASH_ACCESS_KEY; // Ensure you've set your access key in environment variables
+    const accessKey = process.env.NEXT_PUBLIC_UNSPLASH_ACCESS_KEY;
     const response = await fetch(
       `https://api.unsplash.com/search/photos?page=1&query=${searchTerm}&client_id=${accessKey}&per_page=1`
     );
