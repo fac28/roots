@@ -28,7 +28,7 @@ export default function Header() {
                 Roots
               </span>
             </a>
-            <div className='flex md:hidden md:order-2'>
+            <div className='flex md:hidden md:order-2 '>
               <button
                 data-collapse-toggle='mobile-menu-3'
                 type='button'
@@ -36,9 +36,9 @@ export default function Header() {
                 aria-controls='mobile-menu-3'
                 aria-expanded='false'
               >
-                <span className='sr-only'>Open main menu</span>
+                <span className='sr-only '>Open main menu</span>
                 <svg
-                  className='w-6 h-6'
+                  className='w-6 h-6 '
                   fill='currentColor'
                   viewBox='0 0 20 20'
                   xmlns='http://www.w3.org/2000/svg'
