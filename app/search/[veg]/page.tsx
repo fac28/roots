@@ -16,7 +16,6 @@ const IndividualVegPage = async ({ params }: { params: Params }) => {
   const searchTerm = params.veg;
 
   const veggieResult = await filterByVeggie(searchTerm);
-  console.log(veggieResult);
 
   return (
     <>
