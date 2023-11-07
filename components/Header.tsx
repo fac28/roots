@@ -1,4 +1,4 @@
-import AuthButton from '../components/AuthButton';
+import AuthButton from './AuthButton';
 import { createClient } from '@/utils/supabase/server';
 import { cookies } from 'next/headers';
 

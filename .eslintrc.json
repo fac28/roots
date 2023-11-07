@@ -1,6 +1,7 @@
 {
   "extends": [
     "airbnb",
+    "plugin:@next/next/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:jest/recommended"
   ],
