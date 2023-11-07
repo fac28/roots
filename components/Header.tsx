@@ -32,7 +32,7 @@ export default function Header() {
               <button
                 data-collapse-toggle='mobile-menu-3'
                 type='button'
-                className='md:hidden text-primaryLight-400 hover:text-primaryDark hover:transition-colors duration-400 focus:outline-none focus:ring-2 focus:ring-blue-300 rounded-lg inline-flex items-center justify-center'
+                className='md:hidden text-primaryLight-400 hover:text-primaryDark hover:transition-colors duration-400 focus:outline-none focus:ring-2 focus:ring-secondaryGreen rounded-lg inline-flex items-center justify-center'
                 aria-controls='mobile-menu-3'
                 aria-expanded='false'
               >
