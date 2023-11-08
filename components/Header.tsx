@@ -99,6 +99,14 @@ export default function Header() {
                     My garden
                   </a>
                 </li>
+                <li>
+                  <a
+                    href='/signup'
+                    className='text-primaryLight hover:text-primaryDark hover:transition-colors duration-500 md:border-0 block pl-3 pr-4 py-2 pb-3 md:p-0'
+                  >
+                    Sign up
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
