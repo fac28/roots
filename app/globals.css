@@ -8,6 +8,7 @@ h1, h2, h3, h4, h5, h6 {
 
 body {
   @apply font-source
+  
 }
 
 .button {
@@ -17,5 +18,13 @@ body {
 @media only screen and (max-width:768px){
   .notmd{
     @apply bg-primaryGreen
+  }
+  .notmd::after{
+    position:absolute;
+    top:0;
+    left:0;
+    height: 200px;
+    background-color: pink;
+    z-index:10;
   }
 }
