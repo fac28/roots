@@ -56,7 +56,7 @@ export const SearchBar: React.FC = () => {
             {suggestions.length > 0 && (
               <ul>
                 {suggestions.map((term, index) => (
-                  <li key={term} onClick={() => handleSuggestionClick(term)}>
+                  <li key={index} onClick={() => handleSuggestionClick(term)}>
                     {term}
                   </li>
                 ))}
