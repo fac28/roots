@@ -93,7 +93,7 @@ export default function Header() {
                 </li>
                 <li>
                   <a
-                    href='/mygarden/1'
+                    href='/mygarden'
                     className='text-primaryLight hover:text-primaryDark hover:transition-colors duration-500 md:border-0 block pl-3 pr-4 py-2 pb-3 md:p-0'
                   >
                     My garden
