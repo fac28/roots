@@ -4,15 +4,6 @@ type Params = {
   veg: string;
 };
 
-type VeggieResults = {
-  name: string;
-  sow_in: number[];
-  sow_dir: number[];
-  companion: string[];
-  harvest: number;
-  description: string;
-};
-
 interface UnsplashImage {
   id: string;
   alt_description: string;
