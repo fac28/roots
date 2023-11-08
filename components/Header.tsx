@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import NavItem from './NavItem';
 
 export default function Header() {
   const [toggle, setToggle] = useState(true);
@@ -10,7 +11,7 @@ export default function Header() {
 
   return (
     <>
-      <nav className='text-primaryLight mb-10 w-full'>
+      <nav className='text-primaryLight font-playfair mb-10 w-full'>
         <div className='w-full mx-auto bg-transparent'>
           <div
             className={`${
@@ -18,7 +19,7 @@ export default function Header() {
             } flex flex-wrap items-center justify-between`}
           >
             <a href='/' className='flex'>
-              <span className='self-center text-lg font-semibold whitespace-nowrap p-4'>
+              <span className='self-center text-lg whitespace-nowrap p-4'>
                 Roots
               </span>
             </a>
@@ -33,7 +34,7 @@ export default function Header() {
               >
                 <span className='sr-only '>Open main menu</span>
                 <svg
-                  className={`${toggle ? '' : 'hidden'} w-6 h-6`}
+                  className={`${toggle ? '' : 'hidden'} w-6 h-6 m-2`}
                   fill='currentColor'
                   viewBox='0 0 20 20'
                   xmlns='http://www.w3.org/2000/svg'
@@ -45,7 +46,7 @@ export default function Header() {
                   ></path>
                 </svg>
                 <svg
-                  className={`${toggle ? 'hidden' : ''} w-6 h-6`}
+                  className={`${toggle ? 'hidden' : ''} w-6 h-6 m-2`}
                   fill='currentColor'
                   viewBox='0 0 20 20'
                   xmlns='http://www.w3.org/2000/svg'
@@ -64,48 +65,12 @@ export default function Header() {
               } notmd md:flex justify-between items-end w-full md:w-auto md:order-1`}
               id='mobile-menu-3'
             >
-              <ul className='flex-col md:flex-row flex md:space-x-8 mt-4 md:mt-0 md:text-sm md:font-medium'>
-                <li className='homebehind'>
-                  <a
-                    href='/'
-                    className='md:bg-transparent text-primaryLight hover:text-primaryDark hover:transition-colors duration-500 block pl-3 pr-4 py-2 md:p-0 rounded'
-                    aria-current='page'
-                  >
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='/search'
-                    className='text-primaryLight hover:text-primaryDark hover:transition-colors duration-500  md:border-0 block pl-3 pr-4 py-2 md:p-0'
-                  >
-                    Find a veggie
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='#'
-                    className='text-primaryLight hover:text-primaryDark hover:transition-colors duration-500 md:border-0 block pl-3 pr-4 py-2 pb-3 md:p-0'
-                  >
-                    Take survey
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='/mygarden'
-                    className='text-primaryLight hover:text-primaryDark hover:transition-colors duration-500 md:border-0 block pl-3 pr-4 py-2 pb-3 md:p-0'
-                  >
-                    My garden
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='/signup'
-                    className='text-primaryLight hover:text-primaryDark hover:transition-colors duration-500 md:border-0 block pl-3 pr-4 py-2 pb-3 md:p-0'
-                  >
-                    Sign up
-                  </a>
-                </li>
+              <ul className='items-center flex-col md:flex-row flex md:space-x-8 mt-4 md:mt-0 md:text-sm md:font-medium'>
+                <NavItem link='/' title='Home' />
+                <NavItem link='/search' title='Find a veggie' />
+                <NavItem link='#' title='Take a survey' />
+                <NavItem link='/mygarden' title='My garden' />
+                <NavItem link='/signup' title='Sign up' />
               </ul>
             </div>
           </div>
