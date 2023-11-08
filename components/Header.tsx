@@ -18,7 +18,7 @@ export default function Header() {
               toggle ? 'bg-transparent' : 'bg-primaryGreen'
             } flex flex-wrap items-center justify-between`}
           >
-            <a href='#' className='flex'>
+            <a href='/' className='flex'>
               <span className='self-center text-lg font-semibold whitespace-nowrap p-4'>
                 Roots
               </span>
@@ -68,7 +68,7 @@ export default function Header() {
               <ul className='flex-col md:flex-row flex md:space-x-8 mt-4 md:mt-0 md:text-sm md:font-medium'>
                 <li className='homebehind'>
                   <a
-                    href='#'
+                    href='/'
                     className='md:bg-transparent text-primaryLight hover:text-primaryDark hover:transition-colors duration-500 block pl-3 pr-4 py-2 md:p-0 rounded'
                     aria-current='page'
                   >
@@ -77,7 +77,7 @@ export default function Header() {
                 </li>
                 <li>
                   <a
-                    href='#'
+                    href='/search'
                     className='text-primaryLight hover:text-primaryDark hover:transition-colors duration-500  md:border-0 block pl-3 pr-4 py-2 md:p-0'
                   >
                     Find a veggie
@@ -93,9 +93,11 @@ export default function Header() {
                 </li>
                 <li>
                   <a
-                    href='#'
+                    href='/mygarden/1'
                     className='text-primaryLight hover:text-primaryDark hover:transition-colors duration-500 md:border-0 block pl-3 pr-4 py-2 pb-3 md:p-0'
-                  ></a>
+                  >
+                    My garden
+                  </a>
                 </li>
               </ul>
             </div>
