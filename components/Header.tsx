@@ -11,7 +11,7 @@ export default function Header() {
 
   return (
     <>
-      <nav className='text-primaryLight mb-10 w-full'>
+      <nav className='text-primaryLight font-playfair mb-10 w-full'>
         <div className='w-full mx-auto bg-transparent'>
           <div
             className={`${
@@ -19,7 +19,7 @@ export default function Header() {
             } flex flex-wrap items-center justify-between`}
           >
             <a href='/' className='flex'>
-              <span className='self-center text-lg font-semibold whitespace-nowrap p-4'>
+              <span className='self-center text-lg whitespace-nowrap p-4'>
                 Roots
               </span>
             </a>
@@ -65,7 +65,7 @@ export default function Header() {
               } notmd md:flex justify-between items-end w-full md:w-auto md:order-1`}
               id='mobile-menu-3'
             >
-              <ul className='flex-col md:flex-row flex md:space-x-8 mt-4 md:mt-0 md:text-sm md:font-medium'>
+              <ul className='items-center flex-col md:flex-row flex md:space-x-8 mt-4 md:mt-0 md:text-sm md:font-medium'>
                 <NavItem link='/' title='Home' />
                 <NavItem link='/search' title='Find a veggie' />
                 <NavItem link='#' title='Take a survey' />

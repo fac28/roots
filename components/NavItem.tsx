@@ -8,7 +8,7 @@ const NavItem = ({ link, title }: children) => {
     <li>
       <a
         href={link}
-        className='md:bg-transparent text-primaryLight hover:text-primaryDark hover:transition-colors duration-500 block pl-3 pr-4 py-2 md:p-0 rounded'
+        className='md:bg-transparent text-primaryLight hover:text-secondaryGreen hover:transition-colors duration-500 block pl-3 pr-4 py-2 md:p-0 rounded'
         aria-current='page'
       >
         {title}
