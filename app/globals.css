@@ -9,3 +9,7 @@ h1, h2, h3, h4, h5, h6 {
 body {
   @apply font-source
 }
+
+.button {
+  @apply flex items-center py-1 px-2 rounded-md font-playfair shadow-md
+}

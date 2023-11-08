@@ -34,6 +34,7 @@ const IndividualVegPage = async ({ params }: { params: Params }) => {
   const searchTerm = params.veg;
 
   const veggieResult = await filterByVeggie(searchTerm);
+
   try {
     const accessKey = process.env.NEXT_PUBLIC_UNSPLASH_ACCESS_KEY;
     const response = await fetch(
