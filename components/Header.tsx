@@ -24,9 +24,9 @@ export default function Header() {
         <div className='w-full mx-auto bg-primaryGreen'>
           <div className='mx-2  flex flex-wrap items-center justify-between'>
             <a href='#' className='flex'>
-              <span className='self-center text-lg font-semibold whitespace-nowrap p-4'>
+              <h1 className='self-center text-2xl font-semibold whitespace-nowrap p-4'>
                 Roots
-              </span>
+              </h1>
             </a>
             <div className='flex md:hidden md:order-2 '>
               <button
