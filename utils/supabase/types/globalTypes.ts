@@ -6,3 +6,10 @@ export type Veggie = {
   companion: string;
   harvest: number;
 };
+
+export type User = {
+  id: number;
+  name: string;
+};
+
+export type VegIdObject = { veg_id: number };

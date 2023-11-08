@@ -1,5 +1,6 @@
 import MonthDropdown from '@/components/MonthDropdown';
 import TaskList from '@/components/TaskList';
+import WhatsGrowing from '@/components/WhatsGrowing';
 import Image from 'next/image';
 
 const MyGarden = () => {
@@ -15,6 +16,7 @@ const MyGarden = () => {
           className='overflow-hidden'
         />
         <TaskList />
+        <WhatsGrowing />
       </div>
     </>
   );
