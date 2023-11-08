@@ -34,7 +34,7 @@ export default function Header() {
               >
                 <span className='sr-only '>Open main menu</span>
                 <svg
-                  className={`${toggle ? '' : 'hidden'} w-6 h-6`}
+                  className={`${toggle ? '' : 'hidden'} w-6 h-6 m-2`}
                   fill='currentColor'
                   viewBox='0 0 20 20'
                   xmlns='http://www.w3.org/2000/svg'
@@ -46,7 +46,7 @@ export default function Header() {
                   ></path>
                 </svg>
                 <svg
-                  className={`${toggle ? 'hidden' : ''} w-6 h-6`}
+                  className={`${toggle ? 'hidden' : ''} w-6 h-6 m-2`}
                   fill='currentColor'
                   viewBox='0 0 20 20'
                   xmlns='http://www.w3.org/2000/svg'
