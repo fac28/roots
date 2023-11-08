@@ -2,7 +2,12 @@ import AuthButton from './AuthButton';
 import { createClient } from '@/utils/supabase/server';
 import { cookies } from 'next/headers';
 
-export default function Header() {
+type children = {
+  isOpen: boolean;
+  handleToggle: () => void;
+};
+
+export default function Header({ isOpen, handleToggle }: children) {
   const cookieStore = cookies();
 
   const canInitSupabaseClient = () => {
@@ -22,7 +27,11 @@ export default function Header() {
     <>
       <nav className='text-primaryLight mb-10 w-full'>
         <div className='w-full mx-auto bg-transparent'>
-          <div className='flex flex-wrap items-center justify-between'>
+          <div
+            className={`${
+              isOpen ? 'bg-pink-400' : 'bg-blue-300'
+            } flex flex-wrap items-center justify-between`}
+          >
             <a href='#' className='flex'>
               <span className='self-center text-lg font-semibold whitespace-nowrap p-4'>
                 Roots
@@ -30,6 +39,7 @@ export default function Header() {
             </a>
             <div className='flex md:hidden md:order-2 '>
               <button
+                onClick={handleToggle}
                 data-collapse-toggle='mobile-menu-3'
                 type='button'
                 className='md:hidden text-primaryLight-400 hover:text-primaryDark hover:transition-colors duration-400 focus:outline-none focus:ring-2 focus:ring-secondaryGreen rounded-lg inline-flex items-center justify-center'
