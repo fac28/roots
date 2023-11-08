@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import NavItem from './NavItem';
 
 export default function Header() {
   const [toggle, setToggle] = useState(true);
@@ -65,47 +66,11 @@ export default function Header() {
               id='mobile-menu-3'
             >
               <ul className='flex-col md:flex-row flex md:space-x-8 mt-4 md:mt-0 md:text-sm md:font-medium'>
-                <li className='homebehind'>
-                  <a
-                    href='/'
-                    className='md:bg-transparent text-primaryLight hover:text-primaryDark hover:transition-colors duration-500 block pl-3 pr-4 py-2 md:p-0 rounded'
-                    aria-current='page'
-                  >
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='/search'
-                    className='text-primaryLight hover:text-primaryDark hover:transition-colors duration-500  md:border-0 block pl-3 pr-4 py-2 md:p-0'
-                  >
-                    Find a veggie
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='#'
-                    className='text-primaryLight hover:text-primaryDark hover:transition-colors duration-500 md:border-0 block pl-3 pr-4 py-2 pb-3 md:p-0'
-                  >
-                    Take survey
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='/mygarden'
-                    className='text-primaryLight hover:text-primaryDark hover:transition-colors duration-500 md:border-0 block pl-3 pr-4 py-2 pb-3 md:p-0'
-                  >
-                    My garden
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='/signup'
-                    className='text-primaryLight hover:text-primaryDark hover:transition-colors duration-500 md:border-0 block pl-3 pr-4 py-2 pb-3 md:p-0'
-                  >
-                    Sign up
-                  </a>
-                </li>
+                <NavItem link='/' title='Home' />
+                <NavItem link='/search' title='Find a veggie' />
+                <NavItem link='#' title='Take a survey' />
+                <NavItem link='/mygarden' title='My garden' />
+                <NavItem link='/signup' title='Sign up' />
               </ul>
             </div>
           </div>
