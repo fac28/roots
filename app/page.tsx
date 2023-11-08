@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import Carousel from '@/components/Carousel';
+import { SearchBar } from '@/components/SearchBar';
 
 export default async function Index() {
   return (
@@ -15,7 +16,7 @@ export default async function Index() {
       >
         <section className='min-h-screen flex flex-col items-center'>
           <Header />
-          <div>Landing Page</div>
+          <SearchBar />
         </section>
       </section>
       <Carousel />
