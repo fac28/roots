@@ -13,6 +13,7 @@
   "dependencies": {
     "@glidejs/glide": "^3.6.0",
     "@next/font": "^14.0.1",
+    "@supabase/auth-helpers-nextjs": "^0.8.7",
     "@supabase/ssr": "latest",
     "@supabase/supabase-js": "latest",
     "@types/glidejs": "^1.0.33",
