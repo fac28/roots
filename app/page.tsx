@@ -1,5 +1,5 @@
-import Header from '@/components/Header';
 import Carousel from '@/components/Carousel';
+import Header from '@/components/Header';
 import { SearchBar } from '@/components/SearchBar';
 
 export default async function Index() {

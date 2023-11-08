@@ -29,6 +29,6 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "app/unsplash/page.tsx"
-  ],
+, "components/Header.tsx"  ],
   "exclude": ["node_modules"]
 }
