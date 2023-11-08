@@ -2,7 +2,7 @@
 
 Roots is an app designed to help you plan your garden for the next year. With Roots, you can select your vegetables and view tasks that need to happen for each month in your garden.
 
-Deployed here [Roots](roots-bice.vercel.app)
+Deployed here [Roots](https://roots-bice.vercel.app)
 
 
 Currently visit /mygarden to see dummy data of your monthly tasks.
