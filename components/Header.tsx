@@ -2,10 +2,9 @@
 import { useState } from 'react';
 
 export default function Header() {
-  const [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState(true);
 
   const handleToggle = () => {
-    console.log('handletoggle ');
     setToggle((prevState) => !prevState);
   };
 
