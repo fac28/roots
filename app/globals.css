@@ -13,3 +13,9 @@ body {
 .button {
   @apply flex items-center py-1 px-2 rounded-md font-playfair shadow-md
 }
+
+@media only screen and (max-width:768px){
+  .notmd{
+    @apply bg-primaryGreen
+  }
+}
