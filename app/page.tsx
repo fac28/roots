@@ -1,5 +1,5 @@
 import Carousel from '@/components/Carousel';
-import HeaderClient from '@/components/HeaderClient';
+import Header from '@/components/Header';
 import { SearchBar } from '@/components/SearchBar';
 
 export default async function Index() {
@@ -15,7 +15,7 @@ export default async function Index() {
         }}
       >
         <section className='min-h-screen flex flex-col items-center'>
-          <HeaderClient />
+          <Header />
           <SearchBar />
         </section>
       </section>
