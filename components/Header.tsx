@@ -1,40 +1,61 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import NavItem from './NavItem';
 
 export default function Header() {
   const [toggle, setToggle] = useState(true);
+  const [isHomePage, setIsHomePage] = useState(false);
 
   const handleToggle = () => {
     setToggle((prevState) => !prevState);
   };
 
+  useEffect(() => {
+    setIsHomePage(window.location.pathname === '/');
+  }, []);
+
   return (
     <>
-      <nav className='text-primaryLight font-playfair mb-10 w-full'>
+      <nav
+        className={`${
+          isHomePage ? 'absolute' : ''
+        }  font-playfair mb-10 w-full z-50`}
+      >
         <div className='w-full mx-auto bg-transparent'>
           <div
             className={`${
-              toggle ? 'bg-transparent' : 'bg-primaryGreen'
-            } flex flex-wrap items-center justify-between`}
+              !toggle
+                ? 'bg-primaryGreen'
+                : isHomePage
+                ? 'bg-transparent'
+                : 'bg-primaryLight border-b border-primaryDark'
+            } flex flex-wrap items-center justify-between p-2`}
           >
             <a href='/' className='flex'>
-              <span className='self-center text-lg whitespace-nowrap p-4'>
+              <span
+                className={`${
+                  isHomePage ? 'text-primaryLight' : 'text-primaryDark'
+                } self-center text-4xl font-thin whitespace-nowrap m-2`}
+              >
                 Roots
               </span>
             </a>
-            <div className='flex md:hidden md:order-2 '>
+            <div className='flex md:hidden md:order-2 pr-4'>
               <button
                 data-collapse-toggle='mobile-menu-3'
                 type='button'
-                className='md:hidden text-primaryLight-400 hover:transition-colors duration-400 rounded-lg inline-flex items-center justify-center'
+                className={`${
+                  isHomePage ? '' : 'bg-primaryGreen'
+                } md:hidden text-primaryLight-400 hover:transition-colors duration-400 rounded-lg inline-flex items-center justify-center scale-125`}
                 aria-controls='mobile-menu-3'
                 aria-expanded='false'
                 onClick={handleToggle}
               >
                 <span className='sr-only '>Open main menu</span>
                 <svg
-                  className={`${toggle ? '' : 'hidden'} w-6 h-6 m-2`}
+                  className={`${
+                    toggle ? '' : 'hidden'
+                  } w-6 h-6 m-1 text-primaryLight`}
                   fill='currentColor'
                   viewBox='0 0 20 20'
                   xmlns='http://www.w3.org/2000/svg'
@@ -66,11 +87,31 @@ export default function Header() {
               id='mobile-menu-3'
             >
               <ul className='items-center flex-col md:flex-row flex md:space-x-8 mt-4 md:mt-0 md:text-sm md:font-medium'>
-                <NavItem link='/' title='Home' />
-                <NavItem link='/search' title='Find a veggie' />
-                <NavItem link='#' title='Take a survey' />
-                <NavItem link='/mygarden' title='My garden' />
-                <NavItem link='/signup' title='Sign up' />
+                <NavItem
+                  link='/'
+                  title='Home'
+                  isHomePage={isHomePage}
+                  toggle={toggle}
+                />
+                <NavItem
+                  link='/search'
+                  title='Find a veggie'
+                  isHomePage={isHomePage}
+                  toggle={toggle}
+                />
+                <NavItem
+                  link='#'
+                  title='Take a survey'
+                  isHomePage={isHomePage}
+                  toggle={toggle}
+                />
+                {/* <NavItem link='/mygarden' title='My garden' isHomePage={isHomePage} toggle={toggle}/> */}
+                <NavItem
+                  link='/signup'
+                  title='Sign up'
+                  isHomePage={isHomePage}
+                  toggle={toggle}
+                />
               </ul>
             </div>
           </div>

@@ -15,7 +15,7 @@ export default async function Index() {
         }}
       >
         <section className='min-h-screen flex flex-col items-center'>
-          <Header />
+          {/* <Header /> */}
           <SearchBar />
         </section>
       </section>
