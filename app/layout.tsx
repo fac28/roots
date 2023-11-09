@@ -7,7 +7,7 @@ const defaultUrl = process.env.VERCEL_URL
 export const metadata = {
   metadataBase: new URL(defaultUrl),
   title: 'Roots',
-  description: 'Your garden at you fingertips',
+  description: 'Your garden at your fingertips',
 };
 
 export default function RootLayout({
@@ -17,6 +17,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
+      <head>
+        <link
+          rel='icon'
+          type='image/png'
+          href='/images/icons-fig-96.png'
+        ></link>
+      </head>
       <body>
         <main className='min-h-screen flex flex-col items-center'>
           {children}
