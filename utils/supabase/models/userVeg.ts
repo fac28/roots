@@ -60,7 +60,7 @@ function handleError(context: string, error: any): void {
 }
 
 // The main function to fetch vegetable names for a user.
-export default async function fetchVegetableIdsForUser() {
+export default async function fetchVegetableNamesForUser() {
   const cookieStore = cookies();
   const supabase = createClient(cookieStore);
   const user = getUser();

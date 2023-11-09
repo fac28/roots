@@ -1,7 +1,7 @@
-import fetchVegetableIdsForUser from '@/utils/supabase/models/userVeg';
+import fetchVegetableNamesForUser from '@/utils/supabase/models/userVeg';
 
 async function WhatsGrowing() {
-  const userVeg = await fetchVegetableIdsForUser();
+  const userVeg = await fetchVegetableNamesForUser();
 
   console.log(userVeg);
 
@@ -15,7 +15,10 @@ async function WhatsGrowing() {
       </div>
       <div className='flex flex-wrap justify-center items-center gap-4 p-4'>
         {userVeg.map((veg) => (
-          <div className='w-16 md:w-32 vh-10 shadow' key={veg}>
+          <div
+            className='w-16 h-16 md:w-32 md:h-32 shadow text-center'
+            key={veg}
+          >
             {veg}
           </div>
         ))}
