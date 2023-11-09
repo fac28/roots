@@ -1,36 +1,36 @@
-# Roots - Garden Planning App
+# Roots - Your Gardening Companion
 
-Roots is an app designed to help you plan your garden for the next year. With Roots, you can select your vegetables and view tasks that need to happen for each month in your garden.
+## Introduction
 
-Deployed here [Roots](https://roots-bice.vercel.app)
+Roots is an innovative app that's designed to streamline your gardening process. We understand the joy and challenges that come with planning a vegetable garden. Our app aims to simplify the task by providing a month-by-month guide to managing your garden, tailored to the vegetables you choose to grow. The motivation behind Roots is simple: to make planning and maintaining vegetable patches hassle-free and enjoyable.
 
-Currently visit /mygarden to see dummy data of your monthly tasks.
+## Project Scope
 
-## Installation
+The core functionality of Roots is centered around garden planning, not social networking. We've carved out a niche in the garden planning space by focusing solely on the tools that gardeners find most useful. The feature set for Roots was refined through a combination of user testing and expert advice, ensuring we deliver a product that resonates with the needs of our target audience.
 
-To get started with Roots, follow these installation instructions:
+## Project Plan
 
-### Clone the Repository
+### Sprint Structure
 
-```bash
-git clone https://github.com/fac28/roots.git
-cd roots
-```
+Our development cycle is comprised of agile one-week sprints. Each project phase is meticulously planned:
 
-### Start the server
+- **Design Week:** Laying out the user interface and experience.
+- **Build Weeks:** Split into two segments where the core functionality, like the landing page, vegetable search, and user dashboard, are developed.
+- **Continuous Improvement:** Post-sprint retrospectives and student-guided conversations (SGC) ensure we stay aligned with user needs and industry standards.
 
-```bash
-npm install
-npm run dev
-```
+### Build Order
 
-The development server will be running, and you can access Roots at http://localhost:3000.
-Usage
+Our build strategy prioritizes the most critical features first. We're launching with:
 
-- Visit http://localhost:3000 in your web browser.
-- Go to /mygarden to view tasks that need to happen for each month based on your selected vegetables.
+1. **Landing Page:** The first point of interaction for users, designed to be inviting and informative.
+2. **Vegetable Search Functions:** To help users find the vegetables they want to grow and understand the tasks associated with them.
+3. **Dashboard:** A personalized space for users to track their garden's progress and upcoming tasks.
 
-Enjoy planning your garden with Roots!
+### User Research Impact
+
+User input is invaluable to our process. Features like route suggestions and interface simplification were directly influenced by feedback from our target demographic. This insight has been instrumental in shaping a user-centric product that adds real value to our users' gardening activities.
+
+
 
 ## Testing
 
