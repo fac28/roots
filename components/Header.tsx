@@ -19,16 +19,24 @@ export default function Header() {
       <nav
         className={`${
           isHomePage ? 'absolute' : ''
-        } text-primaryLight font-playfair mb-10 w-full z-50`}
+        }  font-playfair mb-10 w-full z-50`}
       >
         <div className='w-full mx-auto bg-transparent'>
           <div
             className={`${
-              toggle ? 'bg-transparent' : 'bg-primaryGreen'
-            } flex flex-wrap items-center justify-between`}
+              !toggle
+                ? 'bg-primaryGreen'
+                : isHomePage
+                ? 'bg-transparent'
+                : 'bg-primaryLight border-b border-primaryDark'
+            } flex flex-wrap items-center justify-between p-2`}
           >
             <a href='/' className='flex'>
-              <span className='self-center text-lg whitespace-nowrap p-4'>
+              <span
+                className={`${
+                  isHomePage ? 'text-primaryLight' : 'text-primaryDark'
+                } self-center text-lg whitespace-nowrap m-2`}
+              >
                 Roots
               </span>
             </a>
@@ -36,7 +44,9 @@ export default function Header() {
               <button
                 data-collapse-toggle='mobile-menu-3'
                 type='button'
-                className='md:hidden text-primaryLight-400 hover:transition-colors duration-400 rounded-lg inline-flex items-center justify-center'
+                className={`${
+                  isHomePage ? '' : 'bg-primaryGreen'
+                } md:hidden text-primaryLight-400 hover:transition-colors duration-400 rounded-lg inline-flex items-center justify-center`}
                 aria-controls='mobile-menu-3'
                 aria-expanded='false'
                 onClick={handleToggle}
@@ -45,7 +55,7 @@ export default function Header() {
                 <svg
                   className={`${
                     toggle ? '' : 'hidden'
-                  } w-6 h-6 m-2 text-primaryLight`}
+                  } w-6 h-6 m-1 text-primaryLight`}
                   fill='currentColor'
                   viewBox='0 0 20 20'
                   xmlns='http://www.w3.org/2000/svg'
