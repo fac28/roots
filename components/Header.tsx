@@ -35,18 +35,18 @@ export default function Header() {
               <span
                 className={`${
                   isHomePage ? 'text-primaryLight' : 'text-primaryDark'
-                } self-center text-2xl font-semibold whitespace-nowrap m-2`}
+                } self-center text-4xl font-thin whitespace-nowrap m-2`}
               >
                 Roots
               </span>
             </a>
-            <div className='flex md:hidden md:order-2 '>
+            <div className='flex md:hidden md:order-2 pr-4'>
               <button
                 data-collapse-toggle='mobile-menu-3'
                 type='button'
                 className={`${
                   isHomePage ? '' : 'bg-primaryGreen'
-                } md:hidden text-primaryLight-400 hover:transition-colors duration-400 rounded-lg inline-flex items-center justify-center`}
+                } md:hidden text-primaryLight-400 hover:transition-colors duration-400 rounded-lg inline-flex items-center justify-center scale-125`}
                 aria-controls='mobile-menu-3'
                 aria-expanded='false'
                 onClick={handleToggle}
