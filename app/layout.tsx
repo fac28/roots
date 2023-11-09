@@ -1,5 +1,7 @@
 import './globals.css';
 import Header from '@/components/Header';
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
+import { cookies } from 'next/headers';
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -11,11 +13,13 @@ export const metadata = {
   description: 'Your garden at your fingertips',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const supabase = createServerComponentClient({ cookies });
+  const { data } = await supabase.auth.getSession();
   return (
     <html lang='en'>
       <head>
@@ -27,7 +31,7 @@ export default function RootLayout({
       </head>
       <body>
         <main className='min-h-screen flex flex-col items-center'>
-          <Header />
+          <Header isLoggedIn={!data.session ? false : true} />
           {children}
         </main>
       </body>

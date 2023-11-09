@@ -1,8 +1,13 @@
 'use client';
 import { useState, useEffect } from 'react';
 import NavItem from './NavItem';
+import LogOutButton from './LogOutButton';
 
-export default function Header() {
+type loggedIn = {
+  isLoggedIn: boolean;
+};
+
+export default function Header({ isLoggedIn }: loggedIn) {
   const [toggle, setToggle] = useState(true);
   const [isHomePage, setIsHomePage] = useState(false);
 
@@ -105,13 +110,30 @@ export default function Header() {
                   isHomePage={isHomePage}
                   toggle={toggle}
                 />
-                {/* <NavItem link='/mygarden' title='My garden' isHomePage={isHomePage} toggle={toggle}/> */}
-                <NavItem
-                  link='/signup'
-                  title='Sign up'
-                  isHomePage={isHomePage}
-                  toggle={toggle}
-                />
+                {isLoggedIn ? (
+                  <>
+                    {/* <NavItem
+                      link='/logout'
+                      title='Log Out'
+                      isHomePage={isHomePage}
+                      toggle={toggle}
+                    /> */}
+                    <LogOutButton />
+                    <NavItem
+                      link='/myGarden'
+                      title='My garden'
+                      isHomePage={isHomePage}
+                      toggle={toggle}
+                    />
+                  </>
+                ) : (
+                  <NavItem
+                    link='/signup'
+                    title='Sign up'
+                    isHomePage={isHomePage}
+                    toggle={toggle}
+                  />
+                )}
               </ul>
             </div>
           </div>

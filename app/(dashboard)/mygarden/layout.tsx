@@ -15,7 +15,7 @@ export default async function RootLayout({
   }
   return (
     <>
-      <AuthenticatedHeader user={{ email: data.session.user.email }} />
+      {/* <AuthenticatedHeader user={{ email: data.session.user.email }} /> */}
       {children}
     </>
   );
