@@ -13,7 +13,7 @@ const MyGarden = () => {
           alt='Autum image'
           width={350}
           height={200}
-          className='overflow-hidden md:w-full'
+          className='overflow-hidden w-full'
         />
         <TaskList />
         <WhatsGrowing />
