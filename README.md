@@ -74,17 +74,13 @@ The success of the Roots app can be measured by its ability to meet the followin
 #### What roles did your team take on?
 Our development team consisted of the following roles:
 
-1. **Product Manager:** Responsible for defining the product vision, prioritizing features, and ensuring that the app meets user needs.
+1. **UI/UX Designer:** Designed the user interface, ensuring a seamless and visually appealing user experience.
 
-2. **UI/UX Designer:** Designed the user interface, ensuring a seamless and visually appealing user experience.
+2. **Scrum Facilitator:** Took the lead with organisation and keeping everyone motivated and on track.
+   
+3. **QA Tester:** Conducted testing and quality assurance to identify and resolve bugs and issues.
 
-3. **Front-End Developer:** Implemented the user interface and user interactions.
-
-4. **Back-End Developer:** Developed the server-side logic, database, and APIs to support the app's functionality.
-
-5. **QA Tester:** Conducted testing and quality assurance to identify and resolve bugs and issues.
-
-6. **Content Writer:** Compiled and curated the plant care information and gardening tips.
+4. **DevOps:** Deployed the site.
 
 #### Did these roles help your team work effectively?
 Yes, having clearly defined roles and responsibilities helped our team work effectively. It ensured that each team member had a specific focus, reducing overlap and miscommunication. Collaboration between roles, such as the product manager and UI/UX designer, was crucial to aligning the product's design with user needs and priorities.
