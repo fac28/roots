@@ -15,10 +15,5 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <>
-      <AuthenticatedHeader />
-      {children}
-    </>
-  );
+  return <>{children}</>;
 }
