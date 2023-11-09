@@ -19,12 +19,8 @@ body {
   .notmd{
     @apply bg-primaryGreen
   }
-  .notmd::after{
-    position:absolute;
-    top:0;
-    left:0;
-    height: 200px;
-    background-color: pink;
-    z-index:10;
-  }
+}
+
+.searchmargintop{
+  margin-top: 150px;
 }

@@ -1,17 +1,26 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import NavItem from './NavItem';
 
 export default function Header() {
   const [toggle, setToggle] = useState(true);
+  const [isHomePage, setIsHomePage] = useState(false);
 
   const handleToggle = () => {
     setToggle((prevState) => !prevState);
   };
 
+  useEffect(() => {
+    setIsHomePage(window.location.pathname === '/');
+  }, []);
+
   return (
     <>
-      <nav className='text-primaryLight font-playfair mb-10 w-full'>
+      <nav
+        className={`${
+          isHomePage ? 'absolute' : ''
+        } text-primaryLight font-playfair mb-10 w-full z-50`}
+      >
         <div className='w-full mx-auto bg-transparent'>
           <div
             className={`${
@@ -34,7 +43,9 @@ export default function Header() {
               >
                 <span className='sr-only '>Open main menu</span>
                 <svg
-                  className={`${toggle ? '' : 'hidden'} w-6 h-6 m-2`}
+                  className={`${
+                    toggle ? '' : 'hidden'
+                  } w-6 h-6 m-2 text-primaryLight`}
                   fill='currentColor'
                   viewBox='0 0 20 20'
                   xmlns='http://www.w3.org/2000/svg'
@@ -69,7 +80,7 @@ export default function Header() {
                 <NavItem link='/' title='Home' />
                 <NavItem link='/search' title='Find a veggie' />
                 <NavItem link='#' title='Take a survey' />
-                <NavItem link='/mygarden' title='My garden' />
+                {/* <NavItem link='/mygarden' title='My garden' /> */}
                 <NavItem link='/signup' title='Sign up' />
               </ul>
             </div>
