@@ -87,11 +87,31 @@ export default function Header() {
               id='mobile-menu-3'
             >
               <ul className='items-center flex-col md:flex-row flex md:space-x-8 mt-4 md:mt-0 md:text-sm md:font-medium'>
-                <NavItem link='/' title='Home' />
-                <NavItem link='/search' title='Find a veggie' />
-                <NavItem link='#' title='Take a survey' />
-                {/* <NavItem link='/mygarden' title='My garden' /> */}
-                <NavItem link='/signup' title='Sign up' />
+                <NavItem
+                  link='/'
+                  title='Home'
+                  isHomePage={isHomePage}
+                  toggle={toggle}
+                />
+                <NavItem
+                  link='/search'
+                  title='Find a veggie'
+                  isHomePage={isHomePage}
+                  toggle={toggle}
+                />
+                <NavItem
+                  link='#'
+                  title='Take a survey'
+                  isHomePage={isHomePage}
+                  toggle={toggle}
+                />
+                {/* <NavItem link='/mygarden' title='My garden' isHomePage={isHomePage} toggle={toggle}/> */}
+                <NavItem
+                  link='/signup'
+                  title='Sign up'
+                  isHomePage={isHomePage}
+                  toggle={toggle}
+                />
               </ul>
             </div>
           </div>
