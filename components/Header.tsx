@@ -35,7 +35,7 @@ export default function Header() {
               <span
                 className={`${
                   isHomePage ? 'text-primaryLight' : 'text-primaryDark'
-                } self-center text-lg whitespace-nowrap m-2`}
+                } self-center text-2xl font-semibold whitespace-nowrap m-2`}
               >
                 Roots
               </span>
