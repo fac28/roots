@@ -4,6 +4,29 @@
 
 Roots is an innovative app that's designed to streamline your gardening process. We understand the joy and challenges that come with planning a vegetable garden. Our app aims to simplify the task by providing a month-by-month guide to managing your garden, tailored to the vegetables you choose to grow. The motivation behind Roots is simple: to make planning and maintaining vegetable patches hassle-free and enjoyable.
 
+Deployed here [Roots](https://roots-bice.vercel.app)
+
+## Installation 
+
+To get started with Roots, follow these installation instructions:
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/fac28/roots.git
+cd roots
+```
+
+### Start the server
+
+```bash
+npm install
+npm run dev
+```
+
+The development server will be running, and you can access Roots at http://localhost:3000.
+
+
 ## Project Scope
 
 The core functionality of Roots is centered around garden planning, not social networking. We've carved out a niche in the garden planning space by focusing solely on the tools that gardeners find most useful. The feature set for Roots was refined through a combination of user testing and expert advice, ensuring we deliver a product that resonates with the needs of our target audience.
