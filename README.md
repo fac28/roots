@@ -35,4 +35,4 @@ Enjoy planning your garden with Roots!
 ## Testing
 
 Run `npm run test:e2e` for end to end testing using Playwright (in file tests)
-Run `npm run test:unit` for unit testing using Jest (in file **tests**)
+Run `npm run test:unit` for unit testing using Jest (in file __ tests  __)
