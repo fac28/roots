@@ -39,7 +39,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ handleSubmit }) => {
           className='border-b border-black'
         />
       </div>
-      <button className='button bg-secondaryGreen mt-8'>Sign up</button>
+      <button className='button bg-secondaryGreen mt-8'>Submit</button>
     </form>
   );
 };

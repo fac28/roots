@@ -1,9 +1,10 @@
 'use client';
 import { useState } from 'react';
-import AuthForm from '@/components/AuthForm';
-import BackArrow from '@/components/BackArrow';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { useRouter } from 'next/navigation';
+
+import AuthForm from '@/components/AuthForm';
+import BackArrow from '@/components/BackArrow';
 
 const Signup = () => {
   const router = useRouter();
@@ -26,7 +27,9 @@ const Signup = () => {
     if (error) {
       setFormError(error.message);
     }
-    if (!error) [router.push('/verify')];
+    if (!error) {
+      router.push('/verify');
+    }
   };
 
   return (

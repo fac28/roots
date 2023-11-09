@@ -1,7 +1,14 @@
 import Link from 'next/link';
+import LogOutButton from './LogOutButton';
 
-const AuthenticatedHeader = () => {
-  const links = ['Home', 'My Garden', 'Find a Veg', 'Sign Out'];
+type ComponentProps = {
+  user: {
+    email: string | undefined;
+  };
+};
+
+const AuthenticatedHeader: React.FC<ComponentProps> = ({ user }) => {
+  const links = ['Home', 'My Garden', 'Find a Veg'];
 
   return (
     <header className='w-full'>
@@ -15,6 +22,7 @@ const AuthenticatedHeader = () => {
                 </span>
               </a>
               <span className='text-xs italic'>My Garden</span>
+              {user && <span>Hello {user.email}</span>}
             </div>
             <div className='flex md:hidden md:order-2'>
               <button
@@ -71,6 +79,7 @@ const AuthenticatedHeader = () => {
                   );
                 })}
               </ul>
+              <LogOutButton />
             </div>
           </div>
         </div>
