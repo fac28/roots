@@ -27,7 +27,6 @@ export async function filterByUserTasks(userId: number): Promise<{
   vegNames: string[];
 } | null> {
   try {
-    // Execute the SQL query to get user tasks
     const { data: userTasks, error: userTasksError } = await supabase
       .from('user_tasks')
       .select('task, checked, veg_id')
@@ -37,12 +36,10 @@ export async function filterByUserTasks(userId: number): Promise<{
       throw userTasksError;
     }
 
-    // Extract task IDs
     const taskIds: number[] = userTasks.map((row: any) => row.task);
     const checkedList: boolean[] = userTasks.map((row: any) => row.checked);
     const linkedVeg: number[] = userTasks.map((row: any) => row.veg_id);
 
-    // Retrieve task_short values one by one for each task ID
     const taskShortList: string[] = [];
     const vegNames: string[] = [];
 
@@ -62,7 +59,7 @@ export async function filterByUserTasks(userId: number): Promise<{
     }
     for (const vegId of linkedVeg) {
       const vegName = await getVegNameById(vegId);
-      vegNames.push(vegName || 'Unknown'); // Handle the case where vegName is null
+      vegNames.push(vegName || 'Unknown');
     }
 
     return { taskShortList, checkedList, vegNames };
