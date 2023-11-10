@@ -79,7 +79,8 @@ const AuthenticatedHeader: React.FC<ComponentProps> = ({ user }) => {
                   );
                 })}
               </ul>
-              <LogOutButton />
+              {/* <LogOutButton isHomePage={isHomePage} toggle={toggle} /> */}
+              {/* <LogOutButton /> */}
             </div>
           </div>
         </div>
