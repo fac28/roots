@@ -6,12 +6,12 @@ const supabase = createClient(cookieStore);
 
 export async function filterByUserTasks(
   userId: number
-): Promise<string[] | null> {
+): Promise<{ taskShortList: string[]; checkedList: boolean[] } | null> {
   try {
     // Execute the SQL query to get user tasks
     const { data: userTasks, error: userTasksError } = await supabase
       .from('user_tasks')
-      .select('task')
+      .select('task, checked')
       .eq('user_id', userId);
 
     if (userTasksError) {
@@ -20,6 +20,7 @@ export async function filterByUserTasks(
 
     // Extract task IDs
     const taskIds: number[] = userTasks.map((row: any) => row.task);
+    const checkedList: boolean[] = userTasks.map((row: any) => row.checked);
 
     // Retrieve task_short values one by one for each task ID
     const taskShortList: string[] = [];
@@ -38,7 +39,7 @@ export async function filterByUserTasks(
       }
     }
 
-    return taskShortList;
+    return { taskShortList, checkedList };
   } catch (error) {
     console.error('Error retrieving tasks:', error);
     throw error;

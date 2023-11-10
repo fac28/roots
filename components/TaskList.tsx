@@ -8,7 +8,7 @@ const TaskList = async () => {
   const userId = 1;
   const userTasks = await filterByUserTasks(userId);
 
-  if (!userTasks || userTasks.length === 0) {
+  if (!userTasks?.taskShortList || userTasks.taskShortList.length === 0) {
     return (
       <div className='flex flex-col gap-4 items-center mt-3'>
         <div className='flex gap-3'>
@@ -32,9 +32,13 @@ const TaskList = async () => {
         </button>
       </div>
       <ul>
-        {userTasks.map((task, index) => (
+        {userTasks?.taskShortList.map((task, index) => (
           <li className='flex items-center gap-5 mt-2' key={index}>
-            {/* {task.checked ? <ImCheckboxChecked /> : <ImCheckboxUnchecked />} */}
+            {userTasks.checkedList[index] ? (
+              <ImCheckboxChecked />
+            ) : (
+              <ImCheckboxUnchecked />
+            )}
             {task}
           </li>
         ))}
