@@ -1,10 +1,9 @@
 import { createClient } from '@/utils/supabase/server';
 import { cookies } from 'next/headers';
 
-const cookieStore = cookies();
-const supabase = createClient(cookieStore);
-
 async function getVegNameById(vegId: number): Promise<string | null> {
+  const cookieStore = cookies();
+  const supabase = createClient(cookieStore);
   const { data, error } = await supabase
     .from('veg')
     .select('name')
@@ -26,6 +25,8 @@ export async function filterByUserTasks(userId: number): Promise<{
   checkedList: boolean[];
   vegNames: string[];
 } | null> {
+  const cookieStore = cookies();
+  const supabase = createClient(cookieStore);
   try {
     const { data: userTasks, error: userTasksError } = await supabase
       .from('user_tasks')
