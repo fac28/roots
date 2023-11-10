@@ -26,6 +26,7 @@ const LogIn = () => {
     }
     if (!error) {
       router.push('/mygarden');
+      window.location.reload();
     }
   };
 

@@ -112,27 +112,29 @@ export default function Header({ isLoggedIn }: loggedIn) {
                 />
                 {isLoggedIn ? (
                   <>
-                    {/* <NavItem
-                      link='/logout'
-                      title='Log Out'
-                      isHomePage={isHomePage}
-                      toggle={toggle}
-                    /> */}
-                    <LogOutButton />
+                    <LogOutButton isHomePage={isHomePage} toggle={toggle} />
                     <NavItem
-                      link='/myGarden'
+                      link='/mygarden'
                       title='My garden'
                       isHomePage={isHomePage}
                       toggle={toggle}
                     />
                   </>
                 ) : (
-                  <NavItem
-                    link='/signup'
-                    title='Sign up'
-                    isHomePage={isHomePage}
-                    toggle={toggle}
-                  />
+                  <>
+                    <NavItem
+                      link='/signup'
+                      title='Sign up'
+                      isHomePage={isHomePage}
+                      toggle={toggle}
+                    />
+                    <NavItem
+                      link='/login'
+                      title='Log in'
+                      isHomePage={isHomePage}
+                      toggle={toggle}
+                    />
+                  </>
                 )}
               </ul>
             </div>

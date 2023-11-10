@@ -3,7 +3,12 @@
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { useRouter } from 'next/navigation';
 
-const LogOutButton = () => {
+type children = {
+  isHomePage: boolean;
+  toggle: boolean;
+};
+
+const LogOutButton = ({ isHomePage, toggle }: children) => {
   const router = useRouter();
 
   const handleLogout = async () => {
@@ -12,6 +17,7 @@ const LogOutButton = () => {
 
     if (!error) {
       router.push('/login');
+      window.location.reload();
     }
 
     if (error) {
@@ -19,7 +25,16 @@ const LogOutButton = () => {
     }
   };
 
-  return <button onClick={handleLogout}>Log out</button>;
+  return (
+    <button
+      className={`${
+        isHomePage || !toggle ? 'text-primaryLight' : 'text-primaryDark'
+      }`}
+      onClick={handleLogout}
+    >
+      Log out
+    </button>
+  );
 };
 
 export default LogOutButton;
