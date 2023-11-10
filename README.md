@@ -6,7 +6,7 @@ Roots is an innovative app that's designed to streamline your gardening process.
 
 Deployed here [Roots](https://roots-bice.vercel.app)
 
-## Installation 
+## Installation
 
 To get started with Roots, follow these installation instructions:
 
@@ -25,7 +25,6 @@ npm run dev
 ```
 
 The development server will be running, and you can access Roots at http://localhost:3000.
-
 
 ## Project Scope
 
@@ -53,16 +52,15 @@ Our build strategy prioritizes the most critical features first. We're launching
 
 User input is invaluable to our process. Features like route suggestions and interface simplification were directly influenced by feedback from our target demographic. This insight has been instrumental in shaping a user-centric product that adds real value to our users' gardening activities.
 
-
-
 ## Testing
 
-Run `npm run test:e2e` for end to end testing using Playwright (in file tests)
-Run `npm run test:unit` for unit testing using Jest (in file __ tests  __)
+Run `npm run test:e2e` for end to end testing using Playwright (in file tests). You will need the browser running in the background (npm run dev) for the tests to pass.
+Run `npm run test:unit` for unit testing using Jest (in file ** tests **)
 
 ## Recommendations and Conclusions
 
 ### What features would you prioritize to build next?
+
 In order to enhance the Roots app and provide a more comprehensive gardening planning experience, we recommend prioritizing the following features for future development:
 
 1. **Weather Integration:** Integrating real-time weather data to provide personalized recommendations based on local weather conditions. This would help users plan their gardening activities more effectively.
@@ -78,6 +76,7 @@ In order to enhance the Roots app and provide a more comprehensive gardening pla
 6. **Garden Planning Templates:** Providing pre-designed garden planning templates for users with varying levels of gardening expertise, making it easier for beginners to get started.
 
 ### Was the project a success?
+
 The success of the Roots app can be measured by its ability to meet the following key objectives:
 
 - **User Engagement:** The app should have a growing user base, with active engagement in planning and managing their gardens.
@@ -95,28 +94,32 @@ The success of the Roots app can be measured by its ability to meet the followin
 ### Planning
 
 #### What roles did your team take on?
+
 Our development team consisted of the following roles:
 
 1. **UI/UX Designer:** Designed the user interface, ensuring a seamless and visually appealing user experience.
 
 2. **Scrum Facilitator:** Took the lead with organisation and keeping everyone motivated and on track.
-   
 3. **QA Tester:** Conducted testing and quality assurance to identify and resolve bugs and issues.
 
 4. **DevOps:** Deployed the site.
 
 #### Did these roles help your team work effectively?
+
 Yes, having clearly defined roles and responsibilities helped our team work effectively. It ensured that each team member had a specific focus, reducing overlap and miscommunication. Collaboration between roles, such as the product manager and UI/UX designer, was crucial to aligning the product's design with user needs and priorities.
 
 ### Analysis
 
 #### What might be the intended and unintended consequences of building this product?
+
 Intended Consequences:
+
 - **Improved Gardening Knowledge:** Users can become more knowledgeable about gardening through the app's educational content.
 - **Better Garden Planning:** Users can plan their gardens more effectively, resulting in healthier and more abundant harvests.
 - **Community Building:** The app can foster a sense of community among gardening enthusiasts, allowing them to share knowledge and experiences.
 
 Unintended Consequences:
+
 - **Overreliance on Technology:** Some users might become overly dependent on the app for gardening guidance, potentially neglecting the hands-on experience of gardening.
 - **Privacy Concerns:** Collecting user data for personalized recommendations may raise privacy concerns if not handled transparently and securely.
 - **Environmental Impact:** Encouraging gardening may have a positive impact on the environment, but there could be unintended environmental consequences if users don't follow sustainable practices.
