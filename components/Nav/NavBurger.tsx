@@ -1,10 +1,8 @@
-type children = {
-  toggle: boolean;
-  isHomePage: boolean;
-  handleToggle: () => void;
-};
+import { navProps } from './navTypes';
 
-const NavBurger = ({ toggle, isHomePage, handleToggle }: children) => {
+const NavBurger = (props: navProps) => {
+  const { toggle, isHomePage, handleToggle } = props;
+
   return (
     <div className='flex md:hidden md:order-2 pr-4'>
       <button

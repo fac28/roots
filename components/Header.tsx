@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import NavBurger from './Nav/NavBurger';
 import NavList from './Nav/NavList';
+import { navProps } from './Nav/navTypes';
 
 type loggedIn = {
   isLoggedIn: boolean;
@@ -18,6 +19,12 @@ export default function Header({ isLoggedIn }: loggedIn) {
   useEffect(() => {
     setIsHomePage(window.location.pathname === '/');
   }, []);
+
+  const props = {
+    toggle,
+    isHomePage,
+    handleToggle,
+  };
 
   return (
     <nav
@@ -44,11 +51,7 @@ export default function Header({ isLoggedIn }: loggedIn) {
               Roots
             </span>
           </a>
-          <NavBurger
-            toggle={toggle}
-            isHomePage={isHomePage}
-            handleToggle={handleToggle}
-          />
+          <NavBurger {...props} />
           <div
             className={`${
               toggle ? 'hidden' : ''
@@ -56,8 +59,7 @@ export default function Header({ isLoggedIn }: loggedIn) {
             id='mobile-menu-3'
           >
             <NavList
-              toggle={toggle}
-              isHomePage={isHomePage}
+              {...props}
               isLoggedIn={isLoggedIn}
             />
           </div>
