@@ -14,7 +14,7 @@ const config = {
     testEnvironment: 'jest-environment-jsdom',
 
     // Here we tell Jest to look for test files in the __tests__ directory only.
-    testMatch: ['<rootDir>/__tests__/**/*.?(m)js?(x)'], // This will match both .js, .jsx, .mjs files within __tests__ directories
+    testMatch: ['<rootDir>/__tests__/**/*.?(m)ts?(x)'], // This will match both .js, .jsx, .mjs files within __tests__ directories
 }
  
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
