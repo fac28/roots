@@ -1,9 +1,8 @@
 import fetchVegetableNamesForUser from '@/utils/supabase/models/userVeg';
+import Image from 'next/image';
 
 async function WhatsGrowing() {
-  const userVeg = await fetchVegetableNamesForUser();
-
-  console.log(userVeg);
+  const userVeg = (await fetchVegetableNamesForUser()) || [];
 
   return (
     <>
@@ -13,17 +12,24 @@ async function WhatsGrowing() {
           Edit
         </button>
       </div>
-      <div className='max-w-sm md:max-w-md grid grid-flow-col auto-cols-max overflow-x-auto gap-4 p-4'>
-        {userVeg.map((veg) => (
-          <a href={`/search/${veg}`} key={veg}>
-            <div
-              className='bg-primaryLight text-xs w-16 h-16 md:w-24 md:h-24 md:text-base shadow text-center pt-2'
-              key={veg}
-            >
-              {veg}
-            </div>
-          </a>
-        ))}
+      <div className='max-w-sm md:max-w-md flex flex-wrap justify-center gap-4 p-4 mb-24'>
+        {userVeg.map(
+          (veg) =>
+            veg && (
+              <a href={`/search/${veg}`} key={veg}>
+                <div className='flex flex-col items-center bg-primaryLight text-xs w-16 h-16 md:w-24 md:h-24 md:text-base shadow text-center pt-2'>
+                  <p>{veg}</p>
+                  <Image
+                    src={`/images/icons/${veg.toLowerCase()}.png`}
+                    alt={`${veg} image`}
+                    width={32}
+                    height={32}
+                    className='md:pt-2'
+                  />
+                </div>
+              </a>
+            )
+        )}
       </div>
     </>
   );
