@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BsChevronCompactDown, BsChevronCompactUp } from 'react-icons/bs';
 
 const MonthDropdown = () => {
@@ -23,15 +23,37 @@ const MonthDropdown = () => {
     'December',
   ];
 
-  const rotatedMonths = [
-    ...months.slice(selectedMonthIndex),
-    ...months.slice(0, selectedMonthIndex),
-  ];
+  const updateURL = (month: string) => {
+    const currentUrl = new URL(window.location.href);
+    currentUrl.searchParams.set('month', month);
+    window.history.pushState({}, '', currentUrl.href);
+  };
+
+  useEffect(() => {
+    const monthName = months[selectedMonthIndex];
+    updateURL(monthName);
+  }, [selectedMonthIndex]);
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    const monthFromUrl = searchParams.get('month');
+    if (monthFromUrl) {
+      const monthIndex = months.indexOf(monthFromUrl);
+      if (monthIndex >= 0) {
+        setSelectedMonthIndex(monthIndex);
+      }
+    }
+  }, []);
 
   const handleMonthSelect = (monthName: string) => {
     const newMonthIndex = months.indexOf(monthName);
     setSelectedMonthIndex(newMonthIndex);
   };
+
+  const rotatedMonths = [
+    ...months.slice(selectedMonthIndex),
+    ...months.slice(0, selectedMonthIndex),
+  ];
 
   return (
     <button
