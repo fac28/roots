@@ -1,17 +1,9 @@
-import { createClient } from '@/utils/supabase/server';
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
-import { User } from '../types/globalTypes';
 import { VegIdObject } from '../types/globalTypes';
 import { handleError } from './handleError';
 import { mapVegIdsToNames } from './mapVegIdsToNames';
-
-// I'm just simulating a user here, but when we have proper auth we can just check the logged in user.
-function getUser(): User {
-  return {
-    id: 1,
-    name: 'Laurie',
-  };
-}
+import { getUser } from './getUser';
 
 // Fetches the IDs of vegetables associated with the user from the 'user_veg' table.
 async function fetchUserVegIds(
@@ -32,10 +24,14 @@ async function fetchUserVegIds(
 
 // The main function to fetch vegetable names for a user.
 export default async function fetchVegetableNamesForUser() {
-  const cookieStore = cookies();
-  const supabase = createClient(cookieStore);
-  const user = getUser();
+  const supabase = createServerComponentClient({ cookies });
+  const user = await getUser(supabase);
 
-  const vegIds = await fetchUserVegIds(supabase, user.id);
-  return mapVegIdsToNames(supabase, vegIds);
+  if (user) {
+    const vegIds = await fetchUserVegIds(supabase, user.id);
+    return mapVegIdsToNames(supabase, vegIds);
+  } else {
+    console.error('User not found or not authenticated.');
+    return [];
+  }
 }

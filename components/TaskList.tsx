@@ -1,10 +1,10 @@
 import { AiOutlinePlus } from 'react-icons/ai';
 import { ImCheckboxChecked, ImCheckboxUnchecked } from 'react-icons/im';
 import { filterByUserTasks } from '@/utils/supabase/models/filterByUserTasks';
+import CustomCheckbox from '@/components/TaskCheckbox';
 
 const TaskList = async () => {
-  const userId = 1;
-  const userTasks = await filterByUserTasks(userId);
+  const userTasks = await filterByUserTasks();
 
   if (!userTasks?.taskShortList || userTasks.taskShortList.length === 0) {
     return (
@@ -32,11 +32,7 @@ const TaskList = async () => {
       <ul>
         {userTasks?.taskShortList.map((task, index) => (
           <li className='flex items-center gap-5 mt-2' key={index}>
-            {userTasks.checkedList[index] ? (
-              <ImCheckboxChecked />
-            ) : (
-              <ImCheckboxUnchecked />
-            )}
+            <CustomCheckbox initialState={userTasks.checkedList[index]} />
             {userTasks.vegNames[index]} - {task}
           </li>
         ))}
