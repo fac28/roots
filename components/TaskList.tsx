@@ -2,7 +2,7 @@ import { AiOutlinePlus } from 'react-icons/ai';
 import { filterByUserTasks } from '@/utils/supabase/models/filterByUserTasks';
 import CustomCheckbox from '@/components/TaskCheckbox';
 const TaskList = async () => {
-  const userId = 1;
+  const userId = 6;
   const userTasks = await filterByUserTasks(userId);
 
   if (!userTasks?.taskShortList || userTasks.taskShortList.length === 0) {
