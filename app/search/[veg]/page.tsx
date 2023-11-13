@@ -11,15 +11,15 @@ const IndividualVegPage = async ({ params }: { params: Params }) => {
 
   if (unsplashImage) {
     return (
-      <>
+      <div className='bg-red-500 p-12 mx-48 child:bg-red-100'>
+        <h2 className='text-4xl text-center'>{veggieResult[0].name}</h2>
         <img
           src={unsplashImage.urls.small}
           alt={unsplashImage.alt_description}
         />
 
-        <h2>Page for {veggieResult[0].name}</h2>
         <p>{veggieResult[0].description}</p>
-      </>
+      </div>
     );
   } else {
     return <div>Error fetching image.</div>;
