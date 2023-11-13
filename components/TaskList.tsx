@@ -31,12 +31,7 @@ const TaskList = async () => {
       <ul>
         {userTasks?.taskShortList.map((task, index) => (
           <li className='flex items-center gap-5 mt-2' key={index}>
-            <CustomCheckbox />
-            {/* {userTasks.checkedList[index] ? (
-                <ImCheckboxChecked />
-              ) : (
-                <ImCheckboxUnchecked />
-              )} */}
+            <CustomCheckbox initialState={userTasks.checkedList[index]} />
             {userTasks.vegNames[index]} - {task}
           </li>
         ))}

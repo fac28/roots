@@ -3,8 +3,12 @@
 import React, { useState } from 'react';
 import { ImCheckboxChecked, ImCheckboxUnchecked } from 'react-icons/im';
 
-const CustomCheckbox: React.FC = () => {
-  const [checked, setChecked] = useState(false);
+interface CustomCheckboxProps {
+  initialState: boolean;
+}
+
+const CustomCheckbox: React.FC<CustomCheckboxProps> = ({ initialState }) => {
+  const [checked, setChecked] = useState(initialState);
 
   const handleCheckboxClick = () => {
     console.log('bloop');
