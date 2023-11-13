@@ -1,13 +1,14 @@
 'use client';
-import React, { use } from 'react';
 import Image from 'next/image';
 import { useState } from 'react';
 
 interface VegSelectButtonProps {
-  veg: string;
+  vegName: string;
+  key: string;
+  onClick: (selectedCrop: string) => void;
 }
 
-const VegSelectButton: React.FC<VegSelectButtonProps> = ({ veg }) => {
+const VegSelectButton: React.FC<VegSelectButtonProps> = ({ vegName }) => {
   const [isSelected, setIsSelected] = useState(false);
 
   const clickHandler = () => {
@@ -20,11 +21,12 @@ const VegSelectButton: React.FC<VegSelectButtonProps> = ({ veg }) => {
         isSelected ? 'bg-primaryGreen' : 'bg-secondaryGreen'
       }`}
       onClick={clickHandler}
+      type='button'
     >
-      <p>{veg}</p>
+      <p>{vegName}</p>
       <Image
-        src={`/images/icons/${veg.toLowerCase()}.png`}
-        alt={`${veg} image`}
+        src={`/images/icons/${vegName.toLowerCase()}.png`}
+        alt={`${vegName} image`}
         width={32}
         height={32}
         className='md:pt-2 m-auto'
