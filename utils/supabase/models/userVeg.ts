@@ -2,6 +2,8 @@ import { createClient } from '@/utils/supabase/server';
 import { cookies } from 'next/headers';
 import { User } from '../types/globalTypes';
 import { VegIdObject } from '../types/globalTypes';
+import { handleError } from './handleError';
+import { mapVegIdsToNames } from './mapVegIdsToNames';
 
 // I'm just simulating a user here, but when we have proper auth we can just check the logged in user.
 function getUser(): User {
@@ -26,37 +28,6 @@ async function fetchUserVegIds(
     return [];
   }
   return data.map((veg: VegIdObject) => veg.veg_id);
-}
-
-// Fetches the name of a vegetable given its ID.
-async function fetchVegNameById(
-  supabase: any,
-  vegId: number
-): Promise<string | null> {
-  const { data, error } = await supabase
-    .from('veg')
-    .select('name')
-    .eq('id', vegId);
-
-  if (error) {
-    handleError('fetching vegetable name', error);
-    return null;
-  }
-
-  return data[0]?.name || null;
-}
-
-// Maps an array of vegetable IDs to their names.
-async function mapVegIdsToNames(
-  supabase: any,
-  vegIds: number[]
-): Promise<(string | null)[]> {
-  return Promise.all(vegIds.map((vegId) => fetchVegNameById(supabase, vegId)));
-}
-
-// Handles errors by logging them to the console.
-function handleError(context: string, error: any): void {
-  console.error(`Error ${context}:`, error.message);
 }
 
 // The main function to fetch vegetable names for a user.

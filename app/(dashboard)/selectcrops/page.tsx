@@ -36,10 +36,28 @@ const SelectCrops = () => {
     });
   };
 
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault(); // Prevent the default form submission behavior
+
+    // Assuming you have a function to get the current user's ID
+    const supabase = createClientComponentClient();
+    const userId = supabase.auth.user.id; // Replace with actual implementation
+
+    // Replace the `findVeggieIds` and `createUserVegEntries` with the actual implementation
+    const veggieIds = await findVeggieIds(selectedCrops);
+
+    if (veggieIds.length > 0) {
+      await createUserVegEntries(userId, veggieIds);
+    }
+  };
+
   return (
     <>
       <h2>Please select your first crops:</h2>
-      <form className='flex flex-wrap justify-center gap-2 mt-8 px-2'>
+      <form
+        className='flex flex-wrap justify-center gap-2 mt-8 px-2'
+        onSubmit={handleSubmit}
+      >
         {vegOptions.map((vegName) => (
           <VegSelectButton
             vegName={vegName}
