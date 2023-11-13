@@ -29,6 +29,12 @@ export async function filterByUserTasks(): Promise<{
 } | null> {
   const supabase = createServerComponentClient({ cookies });
   const user = await getUser(supabase);
+
+  if (!user) {
+    console.error('No user found.');
+    return null;
+  }
+
   try {
     const { data: userTasks, error: userTasksError } = await supabase
       .from('user_tasks')

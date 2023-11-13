@@ -4,9 +4,7 @@ import { filterByUserTasks } from '@/utils/supabase/models/filterByUserTasks';
 import CustomCheckbox from '@/components/TaskCheckbox';
 
 const TaskList = async () => {
-
   const userTasks = await filterByUserTasks();
-
 
   if (!userTasks?.taskShortList || userTasks.taskShortList.length === 0) {
     return (
