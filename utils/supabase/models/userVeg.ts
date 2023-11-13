@@ -1,14 +1,24 @@
-import { createClient } from '@/utils/supabase/server';
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
-import { User } from '../types/globalTypes';
-import { VegIdObject } from '../types/globalTypes';
+import { User, VegIdObject } from '../types/globalTypes';
 
-// I'm just simulating a user here, but when we have proper auth we can just check the logged in user.
-function getUser(): User {
-  return {
-    id: 1,
-    name: 'Laurie',
-  };
+async function getUser(supabase: any): Promise<User | null> {
+  const { data: sessionData } = await supabase.auth.getSession();
+  if (sessionData?.session?.user?.id) {
+    // Fetch the user ID based on the supabase_id from the session.
+    const userResponse = await supabase
+      .from('users')
+      .select('id, name')
+      .eq('supabase_id', sessionData.session.user.id);
+
+    if (userResponse.data && userResponse.data.length > 0) {
+      return {
+        id: userResponse.data[0].id,
+        name: userResponse.data[0].name,
+      };
+    }
+  }
+  return null;
 }
 
 // Fetches the IDs of vegetables associated with the user from the 'user_veg' table.
@@ -46,7 +56,6 @@ async function fetchVegNameById(
   return data[0]?.name || null;
 }
 
-// Maps an array of vegetable IDs to their names.
 async function mapVegIdsToNames(
   supabase: any,
   vegIds: number[]
@@ -54,17 +63,20 @@ async function mapVegIdsToNames(
   return Promise.all(vegIds.map((vegId) => fetchVegNameById(supabase, vegId)));
 }
 
-// Handles errors by logging them to the console.
 function handleError(context: string, error: any): void {
   console.error(`Error ${context}:`, error.message);
 }
 
 // The main function to fetch vegetable names for a user.
 export default async function fetchVegetableNamesForUser() {
-  const cookieStore = cookies();
-  const supabase = createClient(cookieStore);
-  const user = getUser();
+  const supabase = createServerComponentClient({ cookies });
+  const user = await getUser(supabase);
 
-  const vegIds = await fetchUserVegIds(supabase, user.id);
-  return mapVegIdsToNames(supabase, vegIds);
+  if (user) {
+    const vegIds = await fetchUserVegIds(supabase, user.id);
+    return mapVegIdsToNames(supabase, vegIds);
+  } else {
+    console.error('User not found or not authenticated.');
+    return [];
+  }
 }
