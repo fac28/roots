@@ -3,7 +3,9 @@ import { ImCheckboxChecked, ImCheckboxUnchecked } from 'react-icons/im';
 import { filterByUserTasks } from '@/utils/supabase/models/filterByUserTasks';
 
 const TaskList = async () => {
+
   const userTasks = await filterByUserTasks();
+
 
   if (!userTasks?.taskShortList || userTasks.taskShortList.length === 0) {
     return (
