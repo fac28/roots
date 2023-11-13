@@ -2,25 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
-h1, h2, h3, h4, h5, h6 {
-  @apply font-playfair
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-playfair;
 }
 
 body {
-  @apply font-source
-  
+  @apply font-source;
 }
 
 .button {
-  @apply flex items-center py-1 px-2 rounded-md font-playfair shadow-md
+  @apply flex items-center py-1 px-2 rounded-md font-playfair shadow-md;
 }
 
-@media only screen and (max-width:768px){
-  .notmd{
-    @apply bg-primaryGreen
+@media only screen and (max-width: 768px) {
+  .notmd {
+    @apply bg-primaryGreen;
   }
 }
 
-.searchmargintop{
+.searchmargintop {
   margin-top: 150px;
+}
+
+.aspect-thin {
+  aspect-ratio: 32/9;
 }
