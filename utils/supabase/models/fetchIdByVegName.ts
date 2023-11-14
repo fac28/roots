@@ -3,7 +3,7 @@ import { handleError } from './handleError';
 // Fetches the id of a vegetable given its name.
 export async function fetchIdByVegName(
   supabase: any,
-  vegId: number
+  vegId: string
 ): Promise<string | null> {
   const { data, error } = await supabase
     .from('veg')
