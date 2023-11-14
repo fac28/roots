@@ -1,6 +1,6 @@
 import { User } from '../types/globalTypes';
 
-export async function getUser(supabase: any): Promise<User | any> {
+export async function getUser(supabase: any): Promise<User | null> {
   const { data: sessionData } = await supabase.auth.getSession();
   if (sessionData?.session?.user?.id) {
     // Fetch the user ID based on the supabase_id from the session.

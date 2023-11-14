@@ -1,26 +1,7 @@
-import { createClient } from '@/utils/supabase/server';
 import { cookies } from 'next/headers';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { getUser } from './getUser';
-
-async function getVegNameById(vegId: number): Promise<string | null> {
-  const cookieStore = cookies();
-  const supabase = createClient(cookieStore);
-  const { data, error } = await supabase
-    .from('veg')
-    .select('name')
-    .eq('id', vegId);
-
-  if (error) {
-    throw error;
-  }
-
-  if (data && data.length > 0) {
-    return data[0].name;
-  }
-
-  return null;
-}
+import { getVegNameById } from './getVegNameById';
 
 export async function filterByUserTasks(): Promise<{
   taskShortList: string[];
@@ -30,6 +11,9 @@ export async function filterByUserTasks(): Promise<{
   const supabase = createServerComponentClient({ cookies });
   const user = await getUser(supabase);
   try {
+    if (user === null) {
+      return null;
+    }
     const { data: userTasks, error: userTasksError } = await supabase
       .from('user_tasks')
       .select('task, checked, veg_id')

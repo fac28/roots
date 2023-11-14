@@ -2,7 +2,6 @@
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import VegSelectButton from '@/components/VegSelectButton';
 import { useState, useEffect } from 'react';
-import { submitsignuprename } from '@/utils/supabase/models/submitsignuprename';
 
 const SelectCrops = () => {
   const [selectedCrops, setSelectedCrops] = useState<string[]>([]);
@@ -38,8 +37,23 @@ const SelectCrops = () => {
   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault(); // Prevent the default form submission behavior
-    submitsignuprename(selectedCrops);
+    event.preventDefault();
+    console.log(selectedCrops);
+
+    try {
+      const response = await fetch('/api/route.ts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ selectedCrops }),
+      });
+      if (response.ok) {
+        console.log('Signup successful');
+      } else {
+        console.error('Error during signup');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
   };
 
   return (
@@ -56,10 +70,10 @@ const SelectCrops = () => {
             selectedStateHandler={changeHandler}
           />
         ))}
+        <button type='submit' className='button'>
+          Submit
+        </button>
       </form>
-      <button type='submit' className='button'>
-        Submit
-      </button>
     </>
   );
 };
