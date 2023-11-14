@@ -10,6 +10,12 @@ export async function filterByUserTasks(): Promise<{
 } | null> {
   const supabase = createServerComponentClient({ cookies });
   const user = await getUser(supabase);
+
+  if (!user) {
+    console.error('No user found.');
+    return null;
+  }
+
   try {
     if (user === null) {
       return null;
