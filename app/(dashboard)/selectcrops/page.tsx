@@ -38,8 +38,6 @@ const SelectCrops = () => {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(selectedCrops);
-
     try {
       const response = await fetch(`http://localhost:3000/api`, {
         method: 'POST',
@@ -47,7 +45,6 @@ const SelectCrops = () => {
         body: JSON.stringify({ selectedCrops }),
       });
       if (response.ok) {
-        console.log('Signup successful');
       } else {
         console.error('Error during signup');
       }

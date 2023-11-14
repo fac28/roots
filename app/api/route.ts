@@ -1,18 +1,13 @@
-import { fetchIdByVegName } from '@/utils/supabase/models/fetchIdByVegName';
 import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
 import { NextResponse } from 'next/server';
 import getUserId from '@/utils/supabase/models/getUserId';
-
+import { mapVegNamesToId } from '@/utils/supabase/models/mapVegNamesToId';
 import { cookies } from 'next/headers';
 
 export async function POST(req: Request) {
-  console.log('signupwithcrops starting');
-
   try {
     const body = await req.json();
     const selectedCrops: string[] = body?.selectedCrops;
-
-    console.log(selectedCrops);
 
     const supabase = createRouteHandlerClient({ cookies });
 
@@ -23,7 +18,6 @@ export async function POST(req: Request) {
 
     if (sessionData?.session?.user?.id) {
       const supabase_id = sessionData.session.user.id;
-      console.log(supabase_id);
       // Insert into users
       const { error: insertError } = await supabase
         .from('users')
@@ -32,20 +26,18 @@ export async function POST(req: Request) {
         console.error('Error inserting into users:', insertError);
       }
       const user_id = await getUserId(supabase, supabase_id);
-      console.log(user_id);
+      if (!user_id.data) {
+        return null;
+      }
 
       // Prepare the user_veg insert data from selectedCrops
-      const vegData = selectedCrops.map((veg) => {
-        console.log(fetchIdByVegName(supabase, veg));
-        return fetchIdByVegName(supabase, veg);
-      });
+      const vegData = await mapVegNamesToId(supabase, selectedCrops);
       const userVegData = vegData.map((veg) => ({
-        user_id: 6969,
+        user_id: user_id.data.id,
         veg_id: veg,
         sown_in: null,
         sown_dir: null,
       }));
-      console.log({ userVegData });
       // Insert into user_veg
       const { error: insertError2 } = await supabase
         .from('user_veg')
