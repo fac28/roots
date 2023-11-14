@@ -1,5 +1,6 @@
 import fetchVegetableNamesForUser from '@/utils/supabase/models/userVeg';
 import Image from 'next/image';
+import EditGrowingButton from './EditGrowingButton';
 
 async function WhatsGrowing() {
   const userVeg = (await fetchVegetableNamesForUser()) || [];
@@ -8,9 +9,7 @@ async function WhatsGrowing() {
     <>
       <div className='flex justify-between items-center mt-1 '>
         <h1 className='text-lg ml-1'>What's growing:</h1>
-        <button className='bg-primaryLight shadow hover:bg-bitterRed text-primaryDark hover:text-primaryLight font-bold py-1 px-2 rounded inline-flex items-center transition duration-200 ease-in-out transform active:translate-y-1 active:shadow-inner'>
-          Edit
-        </button>
+        <EditGrowingButton />
       </div>
       <div className='max-w-sm md:max-w-md flex flex-wrap justify-center gap-4 p-4 mb-24'>
         {userVeg.map(
