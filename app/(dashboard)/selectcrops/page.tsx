@@ -38,7 +38,7 @@ const SelectCrops = () => {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // submitsignuprename(selectedCrops);
+    console.log(selectedCrops);
 
     try {
       const response = await fetch(`http://localhost:3000/api`, {

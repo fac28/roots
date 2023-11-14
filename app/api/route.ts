@@ -1,14 +1,17 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
 import { fetchIdByVegName } from '@/utils/supabase/models/fetchIdByVegName';
 import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
+import { NextResponse } from 'next/server';
+import getUserId from '@/utils/supabase/models/getUserId';
+
 import { cookies } from 'next/headers';
 
-export async function POST(req: NextApiRequest, res: NextApiResponse) {
+export async function POST(req: Request) {
   console.log('signupwithcrops starting');
 
   try {
-    const selectedCrops: string[] = req.body.selectedCrops;
-    console.log(req.body);
+    const body = await req.json();
+    const selectedCrops: string[] = body?.selectedCrops;
+
     console.log(selectedCrops);
 
     const supabase = createRouteHandlerClient({ cookies });
@@ -28,17 +31,21 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
       if (insertError) {
         console.error('Error inserting into users:', insertError);
       }
+      const user_id = await getUserId(supabase, supabase_id);
+      console.log(user_id);
 
       // Prepare the user_veg insert data from selectedCrops
-      const vegData = selectedCrops.map((veg) =>
-        fetchIdByVegName(supabase, veg)
-      );
+      const vegData = selectedCrops.map((veg) => {
+        console.log(fetchIdByVegName(supabase, veg));
+        return fetchIdByVegName(supabase, veg);
+      });
       const userVegData = vegData.map((veg) => ({
         user_id: 6969,
         veg_id: veg,
         sown_in: null,
         sown_dir: null,
       }));
+      console.log({ userVegData });
       // Insert into user_veg
       const { error: insertError2 } = await supabase
         .from('user_veg')
@@ -50,9 +57,9 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
       console.error('Error finding user');
     }
 
-    res.status(200).json({ message: 'Signup successful' });
+    return NextResponse.json({ message: 'Signup successful' }, { status: 200 });
   } catch (error) {
     console.error('An error occurred:', error);
-    res.status(500).json({ message: 'Internal Server Error' });
+    return NextResponse.json(error);
   }
 }
