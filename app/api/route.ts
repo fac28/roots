@@ -5,25 +5,26 @@ import { cookies } from 'next/headers';
 
 export async function POST(req: NextApiRequest, res: NextApiResponse) {
   console.log('signupwithcrops starting');
-  if (req.method !== 'POST') {
-    res.status(405).send({ message: 'Only POST requests allowed' });
-    return;
-  }
 
   try {
     const selectedCrops: string[] = req.body.selectedCrops;
+    console.log(req.body);
+    console.log(selectedCrops);
+
     const supabase = createRouteHandlerClient({ cookies });
 
     //Prepare the users data from supabase
     const name = "User's Name";
     const avatar = "User's Avatar URL";
     const { data: sessionData } = await supabase.auth.getSession();
+
     if (sessionData?.session?.user?.id) {
       const supabase_id = sessionData.session.user.id;
+      console.log(supabase_id);
       // Insert into users
       const { error: insertError } = await supabase
         .from('users')
-        .insert([{ name: name, avatar_url: avatar, supabase_id: supabase_id }]);
+        .insert([{ name: name, avatar: avatar, supabase_id: supabase_id }]);
       if (insertError) {
         console.error('Error inserting into users:', insertError);
       }
@@ -45,6 +46,8 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
       if (insertError2) {
         console.error('Error inserting into user_veg:', insertError2);
       }
+    } else {
+      console.error('Error finding user');
     }
 
     res.status(200).json({ message: 'Signup successful' });
