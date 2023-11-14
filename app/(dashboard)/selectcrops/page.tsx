@@ -2,7 +2,6 @@
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import VegSelectButton from '@/components/VegSelectButton';
 import { useState, useEffect } from 'react';
-import { submitsignuprename } from '@/utils/supabase/models/submitsignuprename';
 
 const SelectCrops = () => {
   const [selectedCrops, setSelectedCrops] = useState<string[]>([]);
