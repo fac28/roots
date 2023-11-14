@@ -1,11 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { fetchIdByVegName } from '@/utils/supabase/models/fetchIdByVegName';
-import { createClient } from '@supabase/supabase-js';
+import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
+import { cookies } from 'next/headers';
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export async function POST(req: NextApiRequest, res: NextApiResponse) {
   console.log('signupwithcrops starting');
   if (req.method !== 'POST') {
     res.status(405).send({ message: 'Only POST requests allowed' });
@@ -14,10 +12,7 @@ export default async function handler(
 
   try {
     const selectedCrops: string[] = req.body.selectedCrops;
-
-    const supabaseUrl: string = process.env.SUPABASE_URL as string; // Ensure the environment variable is treated as a string
-    const supabaseKey: string = process.env.SUPABASE_SERVICE_KEY as string; // Same for the service key
-    const supabase = createClient(supabaseUrl, supabaseKey);
+    const supabase = createRouteHandlerClient({ cookies });
 
     //Prepare the users data from supabase
     const name = "User's Name";

@@ -2,6 +2,7 @@
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import VegSelectButton from '@/components/VegSelectButton';
 import { useState, useEffect } from 'react';
+import { submitsignuprename } from '@/utils/supabase/models/submitsignuprename';
 
 const SelectCrops = () => {
   const [selectedCrops, setSelectedCrops] = useState<string[]>([]);
@@ -38,10 +39,10 @@ const SelectCrops = () => {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(selectedCrops);
+    // submitsignuprename(selectedCrops);
 
     try {
-      const response = await fetch('/api/route.ts', {
+      const response = await fetch(`http://localhost:3000/api`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ selectedCrops }),
