@@ -1,8 +1,10 @@
 'use client';
+import { useRouter } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
 import { BsChevronCompactDown, BsChevronCompactUp } from 'react-icons/bs';
 
-const MonthDropdown = () => {
+const MonthDropdown = ({ searchParams }: any) => {
+  const router = useRouter();
   const [toggle, setToggle] = useState(true);
   const [selectedMonthIndex, setSelectedMonthIndex] = useState(
     new Date().getMonth()
@@ -26,7 +28,8 @@ const MonthDropdown = () => {
   const updateURL = (month: string) => {
     const currentUrl = new URL(window.location.href);
     currentUrl.searchParams.set('month', month);
-    window.history.pushState({}, '', currentUrl.href);
+    router.push(currentUrl.href);
+    // window.history.pushState({}, '', currentUrl.href);
   };
 
   useEffect(() => {

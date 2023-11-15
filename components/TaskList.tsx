@@ -1,12 +1,10 @@
 import { AiOutlinePlus } from 'react-icons/ai';
-import { ImCheckboxChecked, ImCheckboxUnchecked } from 'react-icons/im';
 import { filterByUserTasks } from '@/utils/supabase/models/filterByUserTasks';
 import CustomCheckbox from '@/components/TaskCheckbox';
-// import { fetchMonthsForUserVegetables } from '@/utils/supabase/models/returnVegMonths';
+import getMonthNumber from '@/utils/supabase/models/returnMonthAsNumber';
 
-const TaskList = async () => {
+const TaskList = async ({ searchParams }: any) => {
   const userTasks = await filterByUserTasks();
-  // const vegMonth = (await fetchMonthsForUserVegetables()) || [];
 
   if (!userTasks?.taskShortList || userTasks.taskShortList.length === 0) {
     return (
@@ -23,7 +21,7 @@ const TaskList = async () => {
     );
   }
 
-  const monthToDisplay = 5; //hard coded, need to make this number equal to the value from the drop dowm list or URL
+  const monthToDisplay = getMonthNumber(searchParams.month);
 
   return (
     <div className='flex flex-col gap-4 items-center mt-3'>

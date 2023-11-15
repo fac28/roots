@@ -10,8 +10,6 @@ async function fetchMonthsForVegId(supabase: any, vegId: number) {
     .select('month, task_id')
     .eq('veg_id', vegId);
 
-  // console.log(data);
-
   if (error) {
     handleError('fetching months for vegetable', error);
     return [];
