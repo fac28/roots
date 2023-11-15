@@ -9,6 +9,7 @@ import BackArrow from '@/components/BackArrow';
 const Signup = () => {
   const router = useRouter();
   const [formError, setFormError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (
     e: React.FormEvent<HTMLFormElement>,
@@ -16,6 +17,7 @@ const Signup = () => {
     password: string
   ): Promise<void> => {
     e.preventDefault();
+    setIsLoading(true);
     const supabase = createClientComponentClient();
     const { error } = await supabase.auth.signUp({
       email,
@@ -26,6 +28,7 @@ const Signup = () => {
     });
     if (error) {
       setFormError(error.message);
+      setIsLoading(false);
     }
     if (!error) {
       router.push('/verify');
@@ -37,7 +40,7 @@ const Signup = () => {
       <BackArrow href={'/'} />
       <h2 className='mt-5 text-3xl'>Sign up</h2>
       <p className='mt-2 text-sm italic'>Please create an account</p>
-      <AuthForm handleSubmit={handleSubmit} />
+      <AuthForm handleSubmit={handleSubmit} isLoading={isLoading} />
       {formError && <div>{formError}</div>}
     </div>
   );

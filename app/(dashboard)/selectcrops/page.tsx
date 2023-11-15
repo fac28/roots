@@ -14,6 +14,9 @@ type VegNamesType =
 const SelectCrops = () => {
   const [selectedCrops, setSelectedCrops] = useState<VegNamesType>([]);
   const [vegOptions, setVegOptions] = useState<VegNamesType>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
+
   const router = useRouter();
 
   useEffect(() => {
@@ -50,6 +53,13 @@ const SelectCrops = () => {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    if (selectedCrops.length === 0) {
+      setError('Select at least one crop');
+      return;
+    }
+
+    setIsLoading(true);
     try {
       const response = await fetch(`http://localhost:3000/api`, {
         method: 'POST',
@@ -60,6 +70,7 @@ const SelectCrops = () => {
         router.push('/mygarden');
       } else {
         console.error('Error during signup');
+        setIsLoading(false);
       }
     } catch (error) {
       console.error('Error submitting form:', error);
@@ -68,20 +79,31 @@ const SelectCrops = () => {
 
   return (
     <>
-      <h2>Please select your first crops:</h2>
+      <h2 className='mt-5'>Please select your first crops:</h2>
+      {selectedCrops.length === 0 && (
+        <span className='text-red-400'>{error}</span>
+      )}
       <form
-        className='flex flex-wrap justify-center gap-2 mt-8 px-2'
+        className='flex flex-col items-center mt-8 px-2'
         onSubmit={handleSubmit}
       >
-        {vegOptions.map((veg) => (
-          <VegSelectButton
-            vegName={veg.name}
-            key={veg.name}
-            id={veg.id}
-            selectedStateHandler={changeHandler}
-          />
-        ))}
-        <button type='submit' className='button'>
+        <div className='flex flex-wrap justify-center gap-3 px-8 sm:px-10 md:px-20 lg:px-40'>
+          {vegOptions.map((veg) => (
+            <VegSelectButton
+              vegName={veg.name}
+              key={veg.name}
+              id={veg.id}
+              selectedStateHandler={changeHandler}
+            />
+          ))}
+        </div>
+        <button
+          type='submit'
+          disabled={isLoading}
+          className={`button bg-primaryLight my-10 ${
+            isLoading ? 'bg-slate-200' : ''
+          }`}
+        >
           Submit
         </button>
       </form>

@@ -7,10 +7,11 @@ interface AuthFormProps {
     email: string,
     password: string
   ) => Promise<void>;
+  isLoading: boolean;
 }
 
 useState;
-const AuthForm: React.FC<AuthFormProps> = ({ handleSubmit }) => {
+const AuthForm: React.FC<AuthFormProps> = ({ handleSubmit, isLoading }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -39,7 +40,14 @@ const AuthForm: React.FC<AuthFormProps> = ({ handleSubmit }) => {
           className='border-b border-black'
         />
       </div>
-      <button className='button bg-secondaryGreen mt-8'>Submit</button>
+      <button
+        disabled={isLoading}
+        className={`button bg-secondaryGreen mt-8 ${
+          isLoading ? 'bg-slate-200' : ''
+        }`}
+      >
+        Submit
+      </button>
     </form>
   );
 };
