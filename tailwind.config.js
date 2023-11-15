@@ -29,6 +29,7 @@ module.exports = {
     },
   },
   plugins: [
+    // eslint-disable-next-line func-names
     function ({ addVariant }) {
       addVariant('child', '& > *');
       addVariant('child-hover', '& > *:hover');
