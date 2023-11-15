@@ -19,9 +19,17 @@ body {
   @apply relative flex items-center py-1 px-2 rounded-md font-playfair shadow-md active:top-0.5;
 }
 
+.button2 {
+  @apply  flex items-center py-1 px-2 rounded-md font-playfair shadow-md;
+}
+
 @media only screen and (max-width: 768px) {
   .notmd {
     @apply bg-primaryGreen;
+  }
+
+  .noimage {
+    @apply hidden
   }
 }
 
