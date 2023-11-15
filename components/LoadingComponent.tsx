@@ -1,6 +1,6 @@
 export default function LoadingComponent() {
   return (
-    <div>
+    <div className='p-24'>
       <h1>Loading...</h1>
     </div>
   );
