@@ -1,8 +1,8 @@
 import { cookies } from 'next/headers';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { getUser } from './getUser';
-import { getVegNameById } from './getVegNameById';
 import { fetchMonthsForUserVegetables } from './returnVegMonths';
+import { getVegNamesByIds } from './getVegNamesByIds';
 
 export async function filterByUserTasks(): Promise<{
   taskShortList: string[];
@@ -33,25 +33,26 @@ export async function filterByUserTasks(): Promise<{
 
     const taskShortList: string[] = [];
     const vegNames: string[] = [];
-    const taskMonth = await (await fetchMonthsForUserVegetables()).flat();
+    const taskMonth = (await fetchMonthsForUserVegetables()).flat();
 
-    for (const taskId of taskIds) {
-      const { data: taskData, error: taskError } = await supabase
-        .from('tasks')
-        .select('task_short')
-        .eq('id', taskId);
+    const { data: tasksData, error: tasksError } = await supabase
+      .from('tasks')
+      .select('id, task_short')
+      .in('id', taskIds);
 
-      if (taskError) {
-        throw taskError;
-      }
+    if (tasksError) {
+      throw tasksError;
+    }
 
-      if (taskData && taskData.length > 0) {
-        taskShortList.push(taskData[0].task_short);
+    if (tasksData) {
+      for (const task of tasksData) {
+        taskShortList.push(task.task_short);
       }
     }
+    const vegNamesMap = await getVegNamesByIds(linkedVeg);
     for (const vegId of linkedVeg) {
-      const vegName = await getVegNameById(vegId);
-      vegNames.push(vegName || 'Unknown');
+      const vegName = vegNamesMap[vegId] || 'Unknown';
+      vegNames.push(vegName);
     }
 
     return { taskShortList, checkedList, vegNames, taskMonth };
