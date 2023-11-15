@@ -16,7 +16,7 @@ body {
 }
 
 .button {
-  @apply flex items-center py-1 px-2 rounded-md font-playfair shadow-md;
+  @apply relative flex items-center py-1 px-2 rounded-md font-playfair shadow-md active:top-0.5;
 }
 
 @media only screen and (max-width: 768px) {

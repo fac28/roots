@@ -12,8 +12,9 @@ export async function POST(req: Request) {
     const supabase = createRouteHandlerClient({ cookies });
 
     //Prepare the users data from supabase
-    const name = 'Anon User';
     const { data: sessionData } = await supabase.auth.getSession();
+
+    const name = sessionData.session?.user.email;
 
     if (sessionData?.session?.user?.id) {
       const supabase_id = sessionData.session.user.id;
