@@ -1,4 +1,3 @@
-import { fetchIdByVegName } from '@/utils/supabase/models/fetchIdByVegName';
 import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
 import { NextResponse } from 'next/server';
 import getUserId from '@/utils/supabase/models/getUserId';
@@ -6,46 +5,34 @@ import getUserId from '@/utils/supabase/models/getUserId';
 import { cookies } from 'next/headers';
 
 export async function POST(req: Request) {
-  console.log('signupwithcrops starting');
-
   try {
     const body = await req.json();
-    const selectedCrops: string[] = body?.selectedCrops;
-
-    console.log(selectedCrops);
+    const selectedCrops: [{ name: string; id: number }] = body?.selectedCrops;
 
     const supabase = createRouteHandlerClient({ cookies });
 
     //Prepare the users data from supabase
-    const name = "User's Name";
-    const avatar = "User's Avatar URL";
+    const name = 'Anon User';
     const { data: sessionData } = await supabase.auth.getSession();
 
     if (sessionData?.session?.user?.id) {
       const supabase_id = sessionData.session.user.id;
-      console.log(supabase_id);
+
       // Insert into users
       const { error: insertError } = await supabase
         .from('users')
-        .insert([{ name: name, avatar: avatar, supabase_id: supabase_id }]);
+        .insert([{ name: name, avatar: null, supabase_id: supabase_id }]);
       if (insertError) {
         console.error('Error inserting into users:', insertError);
       }
-      const user_id = await getUserId(supabase, supabase_id);
-      console.log(user_id);
+      const { data } = await getUserId(supabase, supabase_id);
 
-      // Prepare the user_veg insert data from selectedCrops
-      const vegData = selectedCrops.map((veg) => {
-        console.log(fetchIdByVegName(supabase, veg));
-        return fetchIdByVegName(supabase, veg);
-      });
-      const userVegData = vegData.map((veg) => ({
-        user_id: 6969,
-        veg_id: veg,
+      const userVegData = selectedCrops.map((veg) => ({
+        user_id: data?.id,
+        veg_id: veg.id,
         sown_in: null,
         sown_dir: null,
       }));
-      console.log({ userVegData });
       // Insert into user_veg
       const { error: insertError2 } = await supabase
         .from('user_veg')

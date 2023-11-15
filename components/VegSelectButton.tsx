@@ -5,18 +5,21 @@ import { useState } from 'react';
 interface VegSelectButtonProps {
   vegName: string;
   key: string;
-  selectedStateHandler: (selectedCrop: string) => void;
+  id: number;
+  selectedStateHandler: (selectedCrop: { id: number; name: string }) => void;
 }
 
 const VegSelectButton: React.FC<VegSelectButtonProps> = ({
   vegName,
-  selectedStateHandler: onClick,
+  key,
+  id,
+  selectedStateHandler,
 }) => {
   const [isSelected, setIsSelected] = useState(false);
 
   const clickHandler = () => {
     setIsSelected((prevState) => !prevState);
-    onClick(vegName);
+    selectedStateHandler({ name: vegName, id: id });
   };
 
   return (
