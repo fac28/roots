@@ -3,7 +3,12 @@ import { filterByUserTasks } from '@/utils/supabase/models/filterByUserTasks';
 import CustomCheckbox from '@/components/TaskCheckbox';
 import getMonthNumber from '@/utils/supabase/models/returnMonthAsNumber';
 
-const TaskList = async ({ searchParams }: any) => {
+type TaskListProps = {
+  searchParams: { month: string };
+};
+
+const TaskList = async ({ searchParams }: TaskListProps) => {
+  // console.log(searchParams)
   const userTasks = await filterByUserTasks();
   const monthToDisplay = getMonthNumber(searchParams.month);
 
@@ -25,7 +30,7 @@ const TaskList = async ({ searchParams }: any) => {
                 <li
                   className={
                     userTasks.taskMonth[index]
-                      .map((number: any) => `_${number}`)
+                      .map((number: number) => `_${number}`)
                       .join(' ') + ' flex items-center gap-5 mt-2'
                   }
                   key={index}
