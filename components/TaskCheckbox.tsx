@@ -11,7 +11,6 @@ const CustomCheckbox: React.FC<CustomCheckboxProps> = ({ initialState }) => {
   const [checked, setChecked] = useState(initialState);
 
   const handleCheckboxClick = () => {
-    console.log('bloop');
     setChecked((prevChecked) => !prevChecked);
   };
 

@@ -2,24 +2,22 @@ import { cookies } from 'next/headers';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { getUser } from './getUser';
 import { getVegNameById } from './getVegNameById';
+import { fetchMonthsForUserVegetables } from './returnVegMonths';
 
 export async function filterByUserTasks(): Promise<{
   taskShortList: string[];
   checkedList: boolean[];
   vegNames: string[];
+  taskMonth: any;
 } | null> {
   const supabase = createServerComponentClient({ cookies });
   const user = await getUser(supabase);
-
-  if (!user) {
-    console.error('No user found.');
-    return null;
-  }
 
   try {
     if (user === null) {
       return null;
     }
+
     const { data: userTasks, error: userTasksError } = await supabase
       .from('user_tasks')
       .select('task, checked, veg_id')
@@ -35,6 +33,7 @@ export async function filterByUserTasks(): Promise<{
 
     const taskShortList: string[] = [];
     const vegNames: string[] = [];
+    const taskMonth = await (await fetchMonthsForUserVegetables()).flat();
 
     for (const taskId of taskIds) {
       const { data: taskData, error: taskError } = await supabase
@@ -55,7 +54,7 @@ export async function filterByUserTasks(): Promise<{
       vegNames.push(vegName || 'Unknown');
     }
 
-    return { taskShortList, checkedList, vegNames };
+    return { taskShortList, checkedList, vegNames, taskMonth };
   } catch (error) {
     console.error('Error retrieving tasks:', error);
     throw error;

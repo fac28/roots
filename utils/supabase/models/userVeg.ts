@@ -6,7 +6,7 @@ import { mapVegIdsToNames } from './mapVegIdsToNames';
 import { getUser } from './getUser';
 
 // Fetches the IDs of vegetables associated with the user from the 'user_veg' table.
-async function fetchUserVegIds(
+export async function fetchUserVegIds(
   supabase: any,
   userId: number
 ): Promise<number[]> {
