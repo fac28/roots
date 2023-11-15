@@ -17,21 +17,15 @@ const NavList = ({ toggle, isHomePage, isLoggedIn }: children) => {
         isHomePage={isHomePage}
         toggle={toggle}
       />
-      <NavItem
-        link='#'
-        title='Take a survey'
-        isHomePage={isHomePage}
-        toggle={toggle}
-      />
       {isLoggedIn ? (
         <>
-          <LogOutButton isHomePage={isHomePage} toggle={toggle} />
           <NavItem
             link='/mygarden'
             title='My garden'
             isHomePage={isHomePage}
             toggle={toggle}
           />
+          <LogOutButton isHomePage={isHomePage} toggle={toggle} />
         </>
       ) : (
         <>

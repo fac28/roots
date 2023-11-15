@@ -29,7 +29,7 @@ export default function Header({ isLoggedIn }: loggedIn) {
             !toggle
               ? 'bg-primaryGreen'
               : isHomePage
-              ? 'bg-transparent'
+              ? 'md:bg-black md:bg-opacity-30'
               : 'bg-primaryLight border-b border-primaryDark'
           } flex flex-wrap items-center justify-between p-2`}
         >
@@ -37,7 +37,7 @@ export default function Header({ isLoggedIn }: loggedIn) {
             <span
               className={`${
                 isHomePage ? 'text-primaryLight' : 'text-primaryDark'
-              } self-center text-4xl font-thin whitespace-nowrap m-2`}
+              } self-center text-4xl font-thin whitespace-nowrap m-2 duration-2000`}
             >
               Roots
             </span>

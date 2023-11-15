@@ -23,6 +23,9 @@ module.exports = {
         playfair: ['Playfair Display', 'serif'],
         source: ['Source Sans 3', 'sans-serif'],
       },
+      transitionDuration: {
+        2000: '2000ms',
+      },
     },
   },
   plugins: [
