@@ -13,7 +13,7 @@ const TaskList = async ({ searchParams }: TaskListProps) => {
   const monthToDisplay = getMonthNumber(searchParams.month);
 
   return (
-    <div className='flex flex-col gap-4 items-center mt-3'>
+    <div className='flex flex-col gap-4 items-center mt-44 md:mt-4'>
       <div className='flex gap-3'>
         <h2 className=''>Task Summary</h2>
         <button>

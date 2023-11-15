@@ -13,7 +13,7 @@ const MyGarden = ({ searchParams }: { searchParams: { month: string } }) => {
           alt='Autum image'
           width={350}
           height={200}
-          className='overflow-hidden w-full noimage'
+          className='overflow-hidden w-full issy '
         />
         <TaskList searchParams={searchParams} />
         <WhatsGrowing />

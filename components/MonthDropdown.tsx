@@ -60,7 +60,7 @@ const MonthDropdown = ({ searchParams }: any) => {
 
   return (
     <button
-      className='button2 gap-2 bg-slate-200 opacity-80 absolute m-2'
+      className='button2 gap-2 bg-slate-200 absolute opacity-80 m-2'
       onClick={() => setToggle(!toggle)}
     >
       <ul>
