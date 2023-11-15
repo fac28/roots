@@ -1,5 +1,6 @@
 import fetchVegetableNamesForUser from '@/utils/supabase/models/userVeg';
 import Image from 'next/image';
+import VegLinksList from './VegLinksList';
 
 async function WhatsGrowing() {
   const userVeg = (await fetchVegetableNamesForUser()) || [];
@@ -13,7 +14,16 @@ async function WhatsGrowing() {
         </button>
       </div>
       <div className='max-w-sm md:max-w-md flex flex-wrap justify-center gap-4 p-4 mb-24'>
-        {userVeg.map(
+        <VegLinksList userVeg={userVeg} />
+      </div>
+    </>
+  );
+}
+
+export default WhatsGrowing;
+
+{
+  /* {userVeg.map(
           (veg) =>
             veg && (
               <a href={`/search/${veg}`} key={veg}>
@@ -29,10 +39,5 @@ async function WhatsGrowing() {
                 </div>
               </a>
             )
-        )}
-      </div>
-    </>
-  );
+        )} */
 }
-
-export default WhatsGrowing;
