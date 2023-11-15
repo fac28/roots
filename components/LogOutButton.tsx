@@ -29,7 +29,7 @@ const LogOutButton = ({ isHomePage, toggle }: children) => {
     <button
       className={`${
         isHomePage || !toggle ? 'text-primaryLight' : 'text-primaryDark'
-      } text-base duration-200 hover:text-secondaryGreen`}
+      } py-2 text-base duration-200 hover:text-secondaryGreen`}
       onClick={handleLogout}
     >
       Log out
