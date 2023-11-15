@@ -2,6 +2,7 @@ import { cookies } from 'next/headers';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { getUser } from './getUser';
 import { getVegNameById } from './getVegNameById';
+import { fetchMonthsForUserVegetables } from './returnVegMonths';
 
 export async function filterByUserTasks(): Promise<{
   taskShortList: string[];

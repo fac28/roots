@@ -1,6 +1,7 @@
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
-import { handleError, getUser } from './userVeg';
+import { handleError } from './handleError';
+import { getUser } from './getUser';
 import { fetchUserVegIds } from './userVeg';
 
 // Fetches the months (as numbers) for a given vegetable ID.
