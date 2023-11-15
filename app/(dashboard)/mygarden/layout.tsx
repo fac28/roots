@@ -1,4 +1,3 @@
-import AuthenticatedHeader from '@/components/AuthenticatedHeader';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { redirect } from 'next/navigation';
 import { cookies } from 'next/headers';

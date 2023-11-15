@@ -1,25 +1,9 @@
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
-import { User, VegIdObject } from '../types/globalTypes';
-
-export async function getUser(supabase: any): Promise<User | null> {
-  const { data: sessionData } = await supabase.auth.getSession();
-  if (sessionData?.session?.user?.id) {
-    // Fetch the user ID based on the supabase_id from the session.
-    const userResponse = await supabase
-      .from('users')
-      .select('id, name')
-      .eq('supabase_id', sessionData.session.user.id);
-
-    if (userResponse.data && userResponse.data.length > 0) {
-      return {
-        id: userResponse.data[0].id,
-        name: userResponse.data[0].name,
-      };
-    }
-  }
-  return null;
-}
+import { VegIdObject } from '../types/globalTypes';
+import { handleError } from './handleError';
+import { mapVegIdsToNames } from './mapVegIdsToNames';
+import { getUser } from './getUser';
 
 // Fetches the IDs of vegetables associated with the user from the 'user_veg' table.
 export async function fetchUserVegIds(
@@ -36,35 +20,6 @@ export async function fetchUserVegIds(
     return [];
   }
   return data.map((veg: VegIdObject) => veg.veg_id);
-}
-
-// Fetches the name of a vegetable given its ID.
-async function fetchVegNameById(
-  supabase: any,
-  vegId: number
-): Promise<string | null> {
-  const { data, error } = await supabase
-    .from('veg')
-    .select('name')
-    .eq('id', vegId);
-
-  if (error) {
-    handleError('fetching vegetable name', error);
-    return null;
-  }
-
-  return data[0]?.name || null;
-}
-
-async function mapVegIdsToNames(
-  supabase: any,
-  vegIds: number[]
-): Promise<(string | null)[]> {
-  return Promise.all(vegIds.map((vegId) => fetchVegNameById(supabase, vegId)));
-}
-
-export function handleError(context: string, error: any): void {
-  console.error(`Error ${context}:`, error.message);
 }
 
 // The main function to fetch vegetable names for a user.

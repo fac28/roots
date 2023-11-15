@@ -21,9 +21,7 @@ export default function Header({ isLoggedIn }: loggedIn) {
 
   return (
     <nav
-      className={`${
-        isHomePage ? 'absolute' : ''
-      }  font-playfair mb-10 w-full z-50`}
+      className={`${isHomePage ? 'absolute' : ''}  font-playfair w-full z-50`}
     >
       <div className='w-full mx-auto bg-transparent'>
         <div

@@ -28,3 +28,7 @@ body {
 .searchmargintop {
   margin-top: 150px;
 }
+
+.aspect-thin {
+  aspect-ratio: 32/9;
+}
