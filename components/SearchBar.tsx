@@ -1,10 +1,33 @@
 'use client';
-
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { FaSearch } from 'react-icons/fa';
 
-const terms = ['Apple', 'Tomato', 'Potato', 'Spinach'];
+const terms = [
+  'Apple',
+  'Tomato',
+  'Potato',
+  'Spinach',
+  'Carrot',
+  'Lettuce',
+  'Strawberry',
+  'Pea',
+  'Beetroot',
+  'Chard',
+  'Broad Bean',
+  'Chard',
+  'Kale',
+  'Courgette',
+  'Radish',
+  'Cucumber',
+  'Onion',
+  'Sweet Corn',
+  'Bell Pepper',
+  'Aubergine',
+  'Chilli Pepper',
+  'Pumpkin',
+  'Garlic',
+];
 
 export const SearchBar: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -52,11 +75,15 @@ export const SearchBar: React.FC = () => {
             required
             onChange={handleInputChange}
           />
-          <div>
+          <div className=' bg-white text-primaryLight bg-opacity-10 rounded '>
             {suggestions.length > 0 && (
               <ul>
                 {suggestions.map((term, index) => (
-                  <li key={index} onClick={() => handleSuggestionClick(term)}>
+                  <li
+                    className='cursor-pointer pl-2 hover:bg-black'
+                    key={index}
+                    onClick={() => handleSuggestionClick(term)}
+                  >
                     {term}
                   </li>
                 ))}
