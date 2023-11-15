@@ -7,7 +7,10 @@ type Params = {
 };
 
 const IndividualVegPage = async ({ params }: { params: Params }) => {
-  const searchTerm = params.veg;
+  let searchTerm = params.veg;
+  if (searchTerm.includes('%20')) {
+    searchTerm = searchTerm.replace(/%20/g, ' ');
+  }
   const veggieResult = await filterByVeggie(searchTerm);
   const unsplashImage = await fetchUnsplashImage(searchTerm);
 
