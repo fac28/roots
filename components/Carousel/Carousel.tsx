@@ -3,9 +3,9 @@
 import React, { useEffect, ReactNode } from 'react';
 import Glide from '@glidejs/glide';
 import '@glidejs/glide/dist/css/glide.core.min.css';
-import Image from 'next/image';
+import './CarouselStyles.css';
 import Slide from './Slide';
-
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 const Carousel = () => {
   useEffect(() => {
     new Glide('.glide', {
@@ -14,8 +14,8 @@ const Carousel = () => {
   }, []);
 
   return (
-    <div className='absolute bottom-0 left-0 w-full bg-primaryLight'>
-      <div className='glide'>
+    <div className='absolute bottom-12 w-full'>
+      <div className='glide wfull custom-carousel-width bg-white'>
         <div className='glide__track' data-glide-el='track'>
           <ul className='glide__slides'>
             <Slide
@@ -63,18 +63,18 @@ const Carousel = () => {
             {/* https://www.theguardian.com/lifeandstyle/2023/nov/05/a-return-after-absence-really-does-make-the-heart-grow-fonder */}
           </ul>
         </div>
-        <div className='glide__arrows bg-white' data-glide-el='controls'>
+        <div className='glide__arrows' data-glide-el='controls'>
           <button
             className='glide__arrow glide__arrow--left'
             data-glide-dir='<'
           >
-            previous
+            <FaChevronLeft />
           </button>
           <button
             className='glide__arrow glide__arrow--right'
             data-glide-dir='>'
           >
-            next
+            <FaChevronRight />
           </button>
         </div>
       </div>

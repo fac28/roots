@@ -1,0 +1,28 @@
+/* CarouselStyles.css */
+
+.glide__arrow {
+  position: absolute;
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  font-size: 24px; /* Adjust size of the arrows */
+  cursor: pointer;
+  z-index: 10;
+}
+
+.glide__arrow--left {
+  left: 10px; /* Adjust distance from the left edge */
+}
+
+.glide__arrow--right {
+  right: 10px; /* Adjust distance from the right edge */
+}
+
+@media only screen and (min-width: 768px) {
+  .custom-carousel-width {
+    width: 70%; /* Set the desired width, e.g., 80% */
+    margin: 10px auto; /* Center the carousel */
+    
+  }
+}

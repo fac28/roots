@@ -1,23 +1,26 @@
 import Carousel from '@/components/Carousel/Carousel';
 import { SearchBar } from '@/components/SearchBar';
 
-export default async function Index() {
+export default function Index() {
   return (
     <>
-      <section
-        className='w-full bg-local ...'
-        style={{
-          backgroundImage: `url('../images/main-background.jpg')`,
-          backgroundSize: 'cover', // or 'contain' or '100% 100%' to adjust the zoom
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center center', // Adjust as needed to position your image
-        }}
-      >
-        <section className='min-h-screen flex flex-col items-center'>
-          {/* <Header /> */}
-          <SearchBar />
+      <div className='flex justify-center w-full'>
+        {' '}
+        {/* Container to center the content */}
+        <section
+          className='w-full relative  bg-local ...' // Set width to 80% (4/5)
+          style={{
+            backgroundImage: `url('../images/main-background.jpg')`,
+            backgroundSize: 'cover', // Adjust as needed
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center center',
+          }}
+        >
+          <section className='min-h-screen flex flex-col items-center'>
+            <SearchBar />
+          </section>
         </section>
-      </section>
+      </div>
       <Carousel />
     </>
   );

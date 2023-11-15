@@ -35,6 +35,10 @@ body {
   .issy {
     @apply w-full aspect-thin object-cover;
   }
+
+  .wfull {
+    @apply w-full
+  }
 }
 
 .searchmargintop {
