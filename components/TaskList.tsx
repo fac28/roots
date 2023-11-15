@@ -11,7 +11,6 @@ const TaskList = async ({ searchParams }: TaskListProps) => {
   // console.log(searchParams)
   const userTasks = await filterByUserTasks();
   const monthToDisplay = getMonthNumber(searchParams.month);
-
   return (
     <div className='flex flex-col gap-4 items-center mt-44 md:mt-4'>
       <div className='flex gap-3'>
@@ -20,7 +19,9 @@ const TaskList = async ({ searchParams }: TaskListProps) => {
           <AiOutlinePlus />
         </button>
       </div>
-      {!userTasks?.taskShortList || userTasks.taskShortList.length === 0 ? (
+      {!userTasks?.taskMonth?.length ||
+      !userTasks?.taskShortList ||
+      userTasks.taskShortList.length === 0 ? (
         <p>No tasks found for this user.</p>
       ) : (
         <ul>
