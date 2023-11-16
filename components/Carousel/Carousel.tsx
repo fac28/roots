@@ -1,4 +1,3 @@
-// components/GlideCarousel.tsx
 'use client';
 import React, { useEffect, ReactNode } from 'react';
 import Glide from '@glidejs/glide';
