@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import AuthForm from '@/components/AuthForm';
-import BackArrow from '@/components/BackArrow';
+
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { useRouter } from 'next/navigation';
 
@@ -34,8 +34,7 @@ const LogIn = () => {
   };
 
   return (
-    <div className='text-center'>
-      <BackArrow href={'/'} />
+    <div className='text-center mt-10'>
       <h2 className='mt-5 text-3xl'>Log In</h2>
       <p className='mt-2 text-sm italic'>Please log in to your account.</p>
       <AuthForm handleSubmit={handleSubmit} isLoading={isLoading} />
