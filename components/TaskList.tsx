@@ -12,12 +12,9 @@ const TaskList = async ({ searchParams }: TaskListProps) => {
   const userTasks = await filterByUserTasks();
   const monthToDisplay = getMonthNumber(searchParams.month);
   return (
-    <div className='flex flex-col gap-4 items-center mt-44 md:mt-4'>
+    <div className='flex flex-col gap-4 items-center mt-5'>
       <div className='flex gap-3'>
         <h2 className=''>Task Summary</h2>
-        <button>
-          <AiOutlinePlus />
-        </button>
       </div>
       {!userTasks?.taskMonth?.length ||
       !userTasks?.taskShortList ||
@@ -45,7 +42,7 @@ const TaskList = async ({ searchParams }: TaskListProps) => {
           })}
         </ul>
       )}
-      <div className='bg-slate-300 h-3 w-full'></div>
+      <div className='bg-slate-300 h-3 w-full md:hidden'></div>
     </div>
   );
 };

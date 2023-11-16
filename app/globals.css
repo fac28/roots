@@ -32,8 +32,9 @@ body {
     @apply hidden;
   }
 
-  .issy {
-    @apply w-full aspect-thin object-cover;
+  .image-wrapper > img {
+    @apply w-full aspect-square object-cover max-w-sm; 
+
   }
 
   .wfull {
