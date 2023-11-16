@@ -38,7 +38,7 @@ body {
   }
 
   .wfull {
-    @apply w-full
+    @apply w-full;
   }
 }
 
@@ -49,3 +49,5 @@ body {
 .aspect-thin {
   aspect-ratio: 32/9;
 }
+
+
