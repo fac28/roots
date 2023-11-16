@@ -14,8 +14,8 @@ const Carousel = () => {
 
   return (
     <div className='absolute bottom-12 w-full'>
-      <div className='glide wfull custom-carousel-width bg-white'>
-        <div className='glide__track' data-glide-el='track'>
+      <div className='glide wfull custom-carousel-width bg-white rounded-3xl'>
+        <div className='glide__track rounded-3xl' data-glide-el='track'>
           <ul className='glide__slides'>
             <Slide
               h1='Gardening in November'
