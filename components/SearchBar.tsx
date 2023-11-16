@@ -77,9 +77,18 @@ export const SearchBar: React.FC = () => {
     setSuggestions([]);
   };
 
+  const capitalizeFirstLetter = (string: string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    router.push(`/search/${searchTerm}`);
+    const formattedSearchTerm = capitalizeFirstLetter(searchTerm);
+    if (terms.includes(formattedSearchTerm)) {
+      router.push(`/search/${formattedSearchTerm}`);
+    } else {
+      router.push('/search');
+    }
   };
 
   return (

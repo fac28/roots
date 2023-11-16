@@ -27,11 +27,6 @@ const IndividualVegPage = async ({ params }: { params: Params }) => {
           <h2 className='text-5xl text-center font-medium'>
             {veggieResult[0].name}
           </h2>
-          {/* <img
-            src={unsplashImage.urls.full}
-            alt={unsplashImage.alt_description}
-            className='aspect-square object-cover'
-          /> */}
 
           <p className='italic'>{veggieResult[0].description}</p>
           <h3 className='text-left text-2xl'>Companion plants:</h3>
